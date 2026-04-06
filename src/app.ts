@@ -9,6 +9,9 @@ import { env } from './config/env';
 
 const app = express();
 
+// Nécessaire pour que le rate limiter lise la vraie IP client derrière Nginx
+app.set('trust proxy', 1);
+
 // Helmet en premier : ses headers s'appliquent à toutes les réponses, y compris CORS preflight
 app.use(helmet());
 
@@ -16,6 +19,8 @@ app.use(
   cors({
     origin: env.CORS_ORIGIN,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
   }),
 );
 

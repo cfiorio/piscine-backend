@@ -10,8 +10,8 @@ function start(): void {
 
   if (hasCerts) {
     const credentials = {
-      key: fs.readFileSync(env.SSL_KEY_PATH as string),
-      cert: fs.readFileSync(env.SSL_CERT_PATH as string),
+      key: fs.readFileSync(env.SSL_KEY_PATH!),
+      cert: fs.readFileSync(env.SSL_CERT_PATH!),
     };
     https.createServer(credentials, app).listen(env.PORT, () => {
       logger.info(`Serveur HTTPS démarré sur le port ${env.PORT}`);

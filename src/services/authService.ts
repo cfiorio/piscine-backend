@@ -16,6 +16,8 @@ export interface Tokens {
   refreshToken: string;
   nom: string | null;
   prenom: string | null;
+  login: string;
+  admin: number | null;
 }
 
 // Délai constant pour éviter les attaques timing (user inconnu vs mauvais mdp)
@@ -99,7 +101,7 @@ function issueTokens(
     expiresAt: refreshExpiresAt(),
   });
 
-  return { accessToken, refreshToken, nom, prenom };
+  return { accessToken, refreshToken, nom, prenom, login, admin };
 }
 
 // -------------------------------------------------------------------
@@ -136,7 +138,10 @@ export async function refresh(incomingRefreshToken: string): Promise<Tokens> {
     throw new Error('INVALID_REFRESH_TOKEN');
   }
 
-  const familyId = decoded.fid as string;
+  const familyId = decoded.fid;
+  if (typeof familyId !== 'string') {
+    throw new Error('INVALID_REFRESH_TOKEN');
+  }
   const tokenHash = hashToken(incomingRefreshToken);
 
   // 2. Détecter une réutilisation (signe de vol) → invalider toute la famille
@@ -177,7 +182,8 @@ export function revokeFamily(refreshToken: string): void {
     const decoded = jwt.verify(refreshToken, env.JWT_REFRESH_SECRET, {
       algorithms: [JWT_ALGORITHM],
     }) as jwt.JwtPayload;
-    const familyId = decoded.fid as string;
+    const familyId = decoded.fid;
+    if (typeof familyId !== 'string') return;
     revokedFamilies.set(familyId, refreshExpiresAt());
     validRefreshTokens.delete(hashToken(refreshToken));
   } catch {

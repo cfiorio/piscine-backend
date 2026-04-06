@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from 'express';
 import { loginSchema } from '../schemas/auth.schema';
 import * as authService from '../services/authService';
+import { findById } from '../repository/organisateurRepository';
 
 const ACCESS_COOKIE = 'accessToken';
 const REFRESH_COOKIE = 'refreshToken';
@@ -28,10 +29,29 @@ function setTokenCookies(res: Response, accessToken: string, refreshToken: strin
 export async function login(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const input = loginSchema.parse(req.body);
-    const { accessToken, refreshToken, nom, prenom } = await authService.login(input);
+    const { accessToken, refreshToken, nom, prenom, login, admin } = await authService.login(input);
 
     setTokenCookies(res, accessToken, refreshToken);
-    res.status(200).json({ message: 'Authentifié', nom, prenom });
+    res.status(200).json({ message: 'Authentifié', nom, prenom, login, admin });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function me(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    // req.user est garanti par le middleware authenticate
+    const organisateur = await findById(req.user!.sub);
+    if (!organisateur) {
+      res.status(401).json({ error: 'Utilisateur introuvable' });
+      return;
+    }
+    res.status(200).json({
+      nom: organisateur.nomOrganisateur,
+      prenom: organisateur.prenomOrganisateur,
+      login: organisateur.loginOrganisateur,
+      admin: organisateur.admin,
+    });
   } catch (err) {
     next(err);
   }
