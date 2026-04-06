@@ -4,6 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import authRoutes from './routes/auth';
+import festivalRoutes from './routes/festival';
 import { errorHandler } from './middleware/errorHandler';
 import { env } from './config/env';
 
@@ -38,6 +39,7 @@ const authLimiter = rateLimit({
 });
 
 app.use('/api/auth', authLimiter, authRoutes);
+app.use('/api/festivals', festivalRoutes);
 
 app.use(errorHandler);
 
