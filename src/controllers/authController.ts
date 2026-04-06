@@ -40,8 +40,11 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
 
 export async function me(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    // req.user est garanti par le middleware authenticate
-    const organisateur = await findById(req.user!.sub);
+    if (!req.user) {
+      res.status(401).json({ error: 'Non authentifié' });
+      return;
+    }
+    const organisateur = await findById(req.user.sub);
     if (!organisateur) {
       res.status(401).json({ error: 'Utilisateur introuvable' });
       return;

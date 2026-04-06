@@ -24,6 +24,11 @@ export function errorHandler(
     return;
   }
 
+  if (err instanceof Error && err.message === 'FESTIVAL_NOT_FOUND') {
+    res.status(404).json({ error: 'Festival introuvable' });
+    return;
+  }
+
   logger.error(err);
 
   res.status(500).json({
