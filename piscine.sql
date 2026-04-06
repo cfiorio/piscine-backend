@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : piscine_mysql:3306
--- Généré le : dim. 05 avr. 2026 à 09:04
+-- Généré le : lun. 06 avr. 2026 à 20:46
 -- Version du serveur : 8.0.42
 -- Version de PHP : 8.3.26
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `piscine`
 --
-CREATE DATABASE IF NOT EXISTS `piscine` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `piscine`;
 
 -- --------------------------------------------------------
 
@@ -412,7 +410,6 @@ INSERT INTO `contact` (`idContact`, `estPrincipalContact`, `nomContact`, `prenom
 (439, 1, 'Carlier', 'Thomas', 'thomas@haumeagames.com', '+32 494 65 82 43', '', 'Co-founder', '', '', '', 441),
 (440, 1, 'Crépin', 'Florine', 'hello@mkdogames.com', '', '', '', '', '', '', 442),
 (441, 1, 'Simon--Guschemann', 'Aliénor', 'zoiko@lesingerables.fr', '06 50 06 88 37', '', '', '', '', '', 443),
-(442, 1, 'Gélébart', 'Thibaud', 'thibaud@deliresgames.com', '06 01 32 28 03', '', '', '', '', '', 444),
 (443, 1, 'Bouvier', 'Jean-Christophe', 'bouvierinter@gmail.com', '06 73 72 65 56', '', '', '', '', '', 423),
 (444, 1, 'Carmona', 'David', 'contact@unfriendly-games.com', '+33 7 85 16 17 41', '', '', '', '', '', 445),
 (445, 1, 'Nguyen', 'Karen', 'contact@unfriendly-games', '+33 7 50 46 21 41', '', '', '', '', '', 445),
@@ -425,7 +422,6 @@ INSERT INTO `contact` (`idContact`, `estPrincipalContact`, `nomContact`, `prenom
 (452, 1, 'Peyrache', 'Julien', 'julien@xdprod.com', '06 95 11 73 21', '', 'Commercial director', '', '', '', 451),
 (454, 1, 'Sanchez', 'Maria Paloma', 'contact@distostudio.fr', '', '', '', '', '', '', 440),
 (455, 1, 'Dias Costa', 'Jaime', 'facecubegame@gmail.com', '06 70 52 06 00', '', 'Siret 947 564 159 00038 / TVA FR13947564159', '', '', '', 424),
-(456, 1, 'Bardon', 'Audrey', 'audrey.bardon@instantscience.fr', '06 76 96 69 78', '05 61 61 00 06', 'Directrice adjointe Responsable Programmation et Communication', '39 allées Jules Guesde', 'Toulouse', '31000', 458),
 (457, 1, 'Bécourt', 'Méline', 'plaidoyer@envol-vert.org', '06 10 05 22 99', '', 'Chargée Empreinte Forêt - France', '', '', '', 459),
 (458, 1, 'XD PRODUCTIONS', 'Facturation', 'compta@xdprod.com', '', '', 'SIRET: 419022165 000 80', '84 rue des Meuniers', 'Bagneux', '92220', 451),
 (459, 1, 'Cautela', 'Florent', 'contact@lelionvert.com', '06 98 34 83 31', '', '', '43 boulevard de Strasbourg', 'Nogent-sur-Marne', '94130', 464),
@@ -836,27 +832,15 @@ CREATE TABLE `facture` (
 --
 
 INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`, `idReservation`) VALUES
-(28, NULL, NULL, 21),
-(29, NULL, NULL, 22),
-(30, NULL, NULL, 23),
-(31, NULL, NULL, 24),
-(32, NULL, NULL, 25),
 (33, '2018-02-04', '2018-03-19', 26),
 (34, '2018-02-06', '2018-03-06', 27),
 (35, '2018-02-05', '2018-11-05', 28),
-(36, NULL, NULL, 29),
-(37, NULL, NULL, 30),
-(38, NULL, NULL, 31),
-(39, NULL, NULL, 32),
-(40, NULL, NULL, 33),
-(41, NULL, NULL, 34),
 (42, '2018-02-04', '2018-02-08', 35),
 (43, '2018-02-05', '2018-02-16', 36),
 (44, '2018-02-01', '2018-02-05', 37),
 (45, '2018-02-06', '2018-02-07', 38),
 (46, '2018-02-05', '2018-02-26', 39),
 (47, '2018-01-11', '2018-01-16', 40),
-(48, NULL, NULL, 41),
 (49, '2018-02-06', '2018-02-14', 42),
 (50, '2018-02-04', '2018-11-12', 43),
 (51, '2018-02-12', '2018-03-02', 44),
@@ -874,39 +858,29 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (63, '2018-02-06', '2018-12-19', 56),
 (64, '2018-02-06', NULL, 57),
 (65, '2018-02-06', NULL, 58),
-(66, NULL, NULL, 59),
 (67, '2018-03-01', '2018-11-20', 60),
 (68, '2018-02-05', '2018-11-06', 61),
 (69, '2018-02-06', '2018-02-08', 62),
 (70, '2018-02-06', '2018-02-12', 63),
-(71, NULL, NULL, 64),
-(72, NULL, NULL, 65),
 (73, '2018-02-06', '2018-02-09', 66),
 (74, '2018-02-06', '2018-03-01', 67),
 (75, '2018-02-03', NULL, 68),
 (76, '2018-02-05', '2018-03-09', 69),
 (77, '2018-02-06', '2018-02-16', 70),
-(78, NULL, NULL, 71),
-(79, NULL, NULL, 72),
 (80, '2018-02-08', '2018-02-21', 73),
 (81, '2018-02-08', '2018-03-15', 74),
 (82, '2018-02-09', '2018-02-12', 75),
 (83, '2018-02-09', '2018-02-16', 76),
-(84, NULL, NULL, 77),
 (85, '2018-03-01', '2019-01-08', 78),
 (86, '2018-03-01', '2018-03-27', 79),
-(87, NULL, NULL, 80),
-(88, NULL, NULL, 81),
 (89, '2019-02-04', '2019-02-08', 82),
 (90, '2019-01-21', '2019-02-19', 83),
-(91, NULL, NULL, 84),
 (92, '2019-02-13', '2019-03-18', 85),
 (93, '2019-01-18', '2019-01-24', 86),
 (94, '2019-02-13', '2019-03-12', 87),
 (95, '2019-03-01', '2019-03-07', 88),
 (96, '2019-01-21', '2019-01-22', 89),
 (97, '2019-01-29', '2019-02-12', 90),
-(98, NULL, NULL, 91),
 (99, '2019-01-28', '2019-02-04', 92),
 (100, '2019-01-30', '2019-02-12', 93),
 (101, '2019-01-18', '2019-01-30', 94),
@@ -914,7 +888,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (103, '2019-01-30', '2019-02-11', 96),
 (104, '2019-01-25', '2019-01-31', 97),
 (105, '2019-01-18', '2019-02-22', 98),
-(106, '2019-01-30', '2019-02-06', 99),
 (107, '2019-01-28', '2019-01-30', 100),
 (108, '2019-01-31', '2019-02-12', 101),
 (109, '2019-01-18', '2019-03-08', 102),
@@ -922,12 +895,8 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (111, '2019-01-28', '2019-01-30', 104),
 (112, '2019-01-24', '2019-02-08', 105),
 (113, '2019-01-31', '2019-02-15', 106),
-(114, NULL, NULL, 107),
-(115, NULL, NULL, 108),
 (116, '2019-01-18', '2019-01-25', 109),
 (117, '2019-01-18', '2019-01-25', 110),
-(118, NULL, NULL, 111),
-(119, NULL, NULL, 112),
 (120, '2019-02-25', '2019-03-09', 113),
 (121, '2019-02-07', '2019-11-20', 114),
 (122, '2019-01-25', '2019-02-05', 115),
@@ -940,7 +909,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (129, '2019-02-07', '2019-02-08', 122),
 (130, '2019-02-06', '2019-03-04', 123),
 (131, '2019-02-07', '2019-03-26', 124),
-(132, NULL, NULL, 125),
 (133, '2019-02-07', '2019-03-01', 126),
 (134, '2019-02-06', '2019-02-15', 127),
 (135, NULL, NULL, 128),
@@ -954,7 +922,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (143, '2019-07-29', '2019-08-21', 136),
 (144, '2019-10-08', '2019-12-11', 137),
 (145, '2019-10-08', '2019-10-30', 138),
-(146, '2019-10-08', NULL, 139),
 (147, '2019-10-08', '2020-01-15', 140),
 (148, '2020-01-09', '2020-01-16', 141),
 (149, '2019-10-14', '2019-10-18', 142),
@@ -964,7 +931,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (153, '2019-11-02', '2019-11-06', 146),
 (154, '2019-11-19', '2020-01-17', 147),
 (155, '2019-11-19', '2019-11-21', 148),
-(156, NULL, NULL, 149),
 (157, '2019-11-19', '2019-11-20', 150),
 (158, '2019-11-19', '2019-12-27', 151),
 (159, '2019-11-19', '2019-11-21', 152),
@@ -983,12 +949,8 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (172, '2020-01-09', '2020-02-05', 165),
 (173, '2020-01-09', '2020-01-15', 166),
 (174, '2020-01-09', '2020-01-13', 167),
-(175, '2020-01-20', NULL, 168),
 (176, '2020-01-16', '2020-02-26', 169),
-(177, '2020-01-21', NULL, 170),
 (178, '2020-01-27', '2020-09-15', 171),
-(179, NULL, NULL, 172),
-(180, NULL, NULL, 173),
 (181, '2020-01-29', '2020-02-23', 174),
 (182, '2020-01-31', '2020-03-11', 175),
 (183, '2020-01-31', '2020-09-11', 176),
@@ -999,13 +961,11 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (188, '2020-02-24', '2020-03-23', 181),
 (189, '2020-02-24', '2020-03-05', 182),
 (190, '2020-02-24', '2020-03-02', 183),
-(191, NULL, NULL, 184),
 (192, '2020-02-24', NULL, 185),
 (193, '2020-02-24', '2020-02-28', 186),
 (194, '2020-02-24', '2020-09-11', 187),
 (195, '2020-03-03', '2020-03-23', 188),
 (196, '2020-02-24', '2020-09-11', 189),
-(197, NULL, NULL, 190),
 (198, '2020-02-24', '2020-02-28', 191),
 (199, '2020-02-24', NULL, 192),
 (200, '2020-02-24', '2020-09-09', 193),
@@ -1019,7 +979,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (208, NULL, NULL, 201),
 (209, NULL, NULL, 202),
 (210, NULL, NULL, 203),
-(211, NULL, NULL, 204),
 (212, NULL, NULL, 205),
 (213, NULL, NULL, 206),
 (214, NULL, NULL, 207),
@@ -1032,38 +991,27 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (221, NULL, NULL, 213),
 (222, NULL, NULL, 214),
 (223, NULL, NULL, 215),
-(224, NULL, NULL, 216),
 (225, NULL, NULL, 217),
-(226, NULL, NULL, 218),
 (227, '2022-03-09', '2022-06-19', 219),
 (228, '2022-03-09', '2022-04-06', 220),
 (229, '2022-03-09', '2022-04-19', 221),
-(230, NULL, NULL, 222),
-(231, NULL, NULL, 223),
 (232, '2022-03-09', '2022-03-12', 224),
 (233, '2022-03-09', '2022-03-16', 225),
 (234, '2022-03-09', '2022-04-26', 226),
-(235, NULL, NULL, 227),
-(236, NULL, NULL, 228),
-(237, NULL, NULL, 229),
 (238, '2022-03-09', '2022-03-13', 230),
 (239, '2022-03-09', '2022-03-12', 231),
 (240, '2022-03-09', '2022-04-19', 232),
 (241, '2022-03-12', '2022-03-30', 233),
 (242, '2022-03-09', '2022-04-19', 234),
 (243, '2022-03-09', '2022-03-30', 235),
-(244, NULL, NULL, 236),
 (245, '2022-03-11', '2022-03-17', 237),
 (246, '2022-03-11', '2022-04-20', 238),
 (247, '2022-03-11', '2022-03-14', 239),
 (248, '2022-03-11', '2022-03-22', 240),
 (249, '2022-03-12', '2022-04-19', 241),
-(250, NULL, NULL, 242),
-(251, NULL, NULL, 243),
 (252, '2022-03-18', '2022-04-05', 244),
 (253, '2022-03-18', '2022-03-21', 245),
 (254, '2022-03-18', '2022-03-22', 246),
-(255, NULL, NULL, 247),
 (256, '2022-03-18', '2022-03-28', 248),
 (257, '2022-03-18', '2022-03-30', 249),
 (258, '2022-03-18', '2022-04-04', 250),
@@ -1091,9 +1039,7 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (280, '2022-03-27', '2022-03-29', 272),
 (281, '2022-03-27', '2022-04-11', 273),
 (282, '2022-03-27', '2022-04-20', 274),
-(283, NULL, NULL, 275),
 (284, '2022-03-27', NULL, 276),
-(285, NULL, NULL, 277),
 (286, '2022-04-05', '2022-09-19', 278),
 (287, '2022-04-05', '2022-05-25', 279),
 (288, '2023-01-23', '2023-04-26', 280),
@@ -1112,13 +1058,8 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (301, '2023-01-23', '2023-01-31', 293),
 (302, '2023-02-18', '2023-03-16', 294),
 (303, '2023-01-24', '2023-01-26', 295),
-(304, NULL, NULL, 296),
-(305, NULL, NULL, 297),
-(306, NULL, NULL, 298),
-(307, '2023-01-24', NULL, 299),
 (308, '2023-01-24', '2023-02-03', 300),
 (309, '2023-01-24', '2023-03-14', 301),
-(310, NULL, NULL, 302),
 (311, '2023-01-23', '2023-02-14', 303),
 (312, '2023-01-24', '2023-02-14', 304),
 (313, '2023-02-08', '2023-03-17', 305),
@@ -1132,7 +1073,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (321, '2023-03-07', '2023-04-13', 313),
 (322, '2023-03-11', '2023-03-13', 314),
 (323, '2023-03-07', '2023-03-09', 315),
-(324, NULL, NULL, 316),
 (325, '2023-03-11', '2023-04-12', 317),
 (326, '2023-03-07', '2023-09-06', 318),
 (327, '2023-03-07', '2023-04-12', 319),
@@ -1151,7 +1091,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (340, NULL, NULL, 332),
 (341, NULL, NULL, 333),
 (342, '2023-03-11', '2023-03-22', 334),
-(343, NULL, NULL, 335),
 (344, '2023-03-15', '2023-03-16', 336),
 (345, '2023-03-19', '2023-03-21', 337),
 (346, '2023-03-17', '2023-03-30', 338),
@@ -1210,7 +1149,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (399, '2024-03-02', '2024-03-11', 389),
 (400, '2024-03-09', '2024-11-19', 390),
 (401, '2024-03-09', '2024-06-17', 391),
-(402, NULL, NULL, 392),
 (403, '2024-03-09', '2024-03-15', 393),
 (404, '2024-03-17', '2024-04-18', 394),
 (405, '2024-03-09', '2024-03-13', 395),
@@ -1228,18 +1166,15 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (417, '2024-04-16', '2024-04-24', 407),
 (418, '2024-04-16', '2024-04-17', 408),
 (419, '2024-03-23', '2024-03-23', 409),
-(420, '2024-03-23', '2024-03-23', 410),
 (421, '2024-04-16', '2024-04-16', 411),
 (422, '2024-04-16', '2024-04-29', 412),
 (423, '2024-04-16', '2024-04-22', 413),
-(424, '2024-11-06', NULL, 414),
 (425, '2024-11-06', '2024-11-19', 415),
 (426, '2024-11-06', '2024-11-14', 416),
 (427, '2025-02-09', '2025-02-19', 417),
 (428, '2024-11-06', '2025-01-15', 418),
 (429, '2024-11-06', '2024-11-07', 419),
 (430, '2024-11-06', '2025-01-31', 420),
-(431, '2024-11-11', '2024-11-15', 421),
 (432, '2024-11-23', '2024-11-28', 422),
 (433, '2024-11-23', '2024-11-27', 423),
 (434, '2024-11-23', '2024-12-03', 424),
@@ -1257,21 +1192,13 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (446, '2025-01-04', '2025-01-06', 436),
 (447, '2025-01-29', '2025-01-29', 437),
 (448, '2025-01-29', '2025-02-05', 438),
-(449, NULL, NULL, 439),
 (450, '2025-02-09', '2025-03-03', 440),
 (451, '2025-01-29', '2025-02-10', 441),
 (452, '2025-01-29', '2025-03-08', 442),
-(453, NULL, NULL, 443),
 (454, '2025-02-09', '2025-02-17', 444),
 (455, '2025-02-09', '2025-04-19', 445),
-(456, NULL, NULL, 446),
-(457, NULL, NULL, 447),
-(458, NULL, NULL, 448),
-(459, NULL, NULL, 449),
 (460, '2024-11-11', '2024-11-15', 450),
-(461, NULL, NULL, 451),
 (462, '2025-03-05', '2025-04-02', 452),
-(463, '2025-03-05', '2025-03-14', 453),
 (464, '2025-02-09', '2025-04-15', 454),
 (465, '2025-02-09', '2025-03-11', 455),
 (466, '2025-02-09', NULL, 456),
@@ -1279,7 +1206,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (468, '2025-02-09', '2025-04-01', 458),
 (469, '2025-02-19', '2025-02-22', 459),
 (470, NULL, NULL, 460),
-(471, NULL, NULL, 461),
 (472, NULL, NULL, 462),
 (473, '2025-02-19', '2025-03-05', 463),
 (474, '2025-02-22', NULL, 464),
@@ -1323,7 +1249,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (512, '2025-12-14', '2026-02-06', 502),
 (513, '2025-12-14', '2025-12-17', 503),
 (514, '2025-12-14', NULL, 504),
-(515, '2025-12-14', '2026-01-13', 505),
 (516, '2025-12-14', NULL, 506),
 (517, '2026-03-31', NULL, 507),
 (518, '2025-12-14', NULL, 508),
@@ -1332,22 +1257,17 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (521, '2026-01-27', '2026-02-03', 511),
 (522, '2025-12-14', NULL, 512),
 (523, '2025-12-14', NULL, 513),
-(524, NULL, NULL, 514),
 (525, '2025-12-21', '2025-12-23', 515),
-(526, NULL, NULL, 516),
 (527, '2025-12-17', '2026-01-14', 517),
 (528, '2026-02-02', '2026-03-18', 518),
 (529, NULL, NULL, 519),
 (530, '2025-12-22', '2026-02-04', 520),
 (531, '2025-12-22', '2025-12-30', 521),
 (532, '2026-01-02', NULL, 522),
-(533, '2026-01-12', '2026-02-15', 523),
 (534, '2026-01-12', '2026-02-27', 524),
 (535, '2026-01-12', '2026-01-20', 525),
 (536, '2026-01-12', '2026-01-13', 526),
-(537, '2026-01-19', '2026-01-26', 527),
 (538, '2026-01-18', '2026-01-19', 528),
-(539, '2026-01-12', '2026-02-06', 529),
 (540, '2026-01-12', '2026-02-26', 530),
 (541, '2026-01-16', '2026-01-16', 531),
 (542, '2026-01-18', '2026-03-10', 532),
@@ -1359,7 +1279,6 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (548, '2026-02-02', '2026-02-04', 538),
 (549, '2026-02-03', '2026-04-02', 539),
 (550, '2026-02-03', '2026-02-11', 540),
-(551, '2026-03-12', '2026-03-23', 541),
 (552, '2026-02-14', NULL, 542),
 (553, '2026-03-12', NULL, 543),
 (554, '2026-03-12', '2026-03-25', 544),
@@ -1369,28 +1288,21 @@ INSERT INTO `facture` (`idFacture`, `dateEmissionFacture`, `datePaiementFacture`
 (558, NULL, NULL, 548),
 (559, NULL, NULL, 549),
 (560, '2026-03-12', '2026-03-24', 550),
-(561, NULL, NULL, 551),
-(562, NULL, NULL, 552),
 (563, '2026-03-12', '2026-03-30', 553),
 (564, '2026-03-12', NULL, 554),
 (565, '2026-03-12', '2026-04-02', 555),
 (566, '2026-03-12', '2026-04-05', 556),
 (567, '2026-03-06', '2026-03-25', 557),
 (568, '2026-03-06', '2026-03-11', 558),
-(569, '2026-03-06', NULL, 559),
 (570, '2026-03-06', '2026-03-25', 560),
 (571, '2026-03-12', '2026-03-31', 561),
-(572, NULL, NULL, 562),
 (574, '2026-03-06', NULL, 564),
 (575, '2026-03-12', '2026-03-16', 565),
 (576, '2026-03-06', '2026-03-09', 566),
 (577, '2026-03-12', '2026-03-20', 567),
 (578, '2026-03-20', NULL, 568),
-(579, '2026-02-06', NULL, 569),
 (580, '2026-03-29', '2026-03-30', 570),
 (581, NULL, NULL, 571),
-(582, NULL, NULL, 572),
-(583, NULL, NULL, 573),
 (584, NULL, NULL, 574),
 (585, NULL, NULL, 575),
 (586, '2026-03-20', '2026-03-24', 576),
@@ -1851,7 +1763,8 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (450, 'Architectes des royaumes de l\'ouest', '', 1, 5, 'http://www.pixiegames.fr/index.php?controller=attachment&id_attachment=111', 160, 3, 12, 0, 80, '', '', '', ''),
 (451, 'Palm Island', '', 1, 2, '', 177, 1, 12, 0, 15, '', '', '', ''),
 (452, 'Joraku', '', 3, 4, '', 177, 3, 14, 0, 60, '', '', '', ''),
-(453, 'Inflexibles: Normandie', '', 1, 2, '', 177, 3, 14, 1, 60, '', '', '', ''),
+(453, 'Inflexibles: Normandie', '', 1, 2, '', 177, 3, 14, 1, 60, '', '', '', '');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (454, 'Last Bastion', '', 1, 4, 'https://www.lastbastion-game.com/files/RULES/LAB_Rules_FR.pdf', 162, 3, 10, 0, 45, '', '', '', ''),
 (455, 'Smile Life', 'Alexandre Seba, Margot Rousseau-Aymard', 2, 6, 'https://www.play-in.com/pdf/rules_games/smile_life_regles_fr.pdf', 214, 2, 12, 0, 20, 'Vie Courante', 'Soyez le plus heureux ! Smile Life consiste à faire et réussir sa vie. Les cartes représentent pour cela des événements liés aux domaines professionnel et personnel : amour, argent, famille, études, carrière, etc. Chaque joueur tâchera d’obtenir les meilleures cartes pour bâtir sa situation et  être le plus heureux possible. Sans épargner les autres pour autant... Posez des cartes face à vous pour faire votre vie. Les smiles, inscrits en haut à gauche des cartes posées, indiquent votre niveau de bonheur. Le but du jeu est d’en avoir le plus possible. Le jeu s’arrête quand la pioche est finie', 'https://cdn3.philibertnet.com/448513-large_default/smile-life.jpg', 'https://www.youtube.com/watch?v=dsDT5zhiCjU'),
 (456, 'Robby One', '', 3, 10, 'https://www.flipflapeditions.fr/wp-content/uploads/2019/10/FLIP-ROBBY-re%CC%80gles-WEB.pdf', 110, 1, 8, 0, 30, '', '', '', ''),
@@ -2145,9 +2058,9 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (769, 'Moustache Gracias', '', 3, 4, 'https://jeux-ducale.fr/wp-content/uploads/2022/03/Cartes-a-jouer-Ducale-regle-jeu-Moustache.pdf', 197, 1, 10, 0, 20, '', '', '', ''),
 (770, 'Tribal', '', 2, 4, 'https://jeux-ducale.fr/wp-content/uploads/2022/03/Cartes-a-jouer-regle-jeu-Tribal.pdf', 197, 1, 10, 0, 30, '', '', '', ''),
 (771, 'Jacques et le Haricot Magique', '', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/jacques-et-le-haricot-magique', 164, 1, 4, 0, 60, '', '', '', ''),
-(772, 'Le Festin des Chenilles', '', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/le-festin-des-chenilles', 164, 4, 5, 0, 10, '', '', '', ''),
-(773, 'Monstres sous le Lit', 'Raf Peeters', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/monstres-sous-le-lit', 164, 4, 6, 0, 5, 'Fantastique', 'Monstres sous le lit est en jeu proposant 60 défis du plus simple au plus difficile dans un format idéal pour les voyages.', 'https://cdn1.philibertnet.com/532822-large_default/monstres-sous-le-lit.jpg', 'https://www.youtube.com/watch?v=QTnyd--dOCo');
+(772, 'Le Festin des Chenilles', '', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/le-festin-des-chenilles', 164, 4, 5, 0, 10, '', '', '', '');
 INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
+(773, 'Monstres sous le Lit', 'Raf Peeters', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/monstres-sous-le-lit', 164, 4, 6, 0, 5, 'Fantastique', 'Monstres sous le lit est en jeu proposant 60 défis du plus simple au plus difficile dans un format idéal pour les voyages.', 'https://cdn1.philibertnet.com/532822-large_default/monstres-sous-le-lit.jpg', 'https://www.youtube.com/watch?v=QTnyd--dOCo'),
 (774, 'Les Pingouins Plongeurs', 'Raf Peeters', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/les-pingouins-plongeurs', 164, 4, 6, 0, 5, 'Banquise', 'Les Pingouins Plongeurs est un jeu de réflexion proposant 60 défis évolutifs. Le but du jeu consiste à réussir à placer les quatre morceaux de banquise autour d’eux.', 'https://cdn2.philibertnet.com/501395-large_default/les-pingouins-plongeurs.jpg', 'https://www.youtube.com/watch?v=ExJBu01DLtk'),
 (775, 'Pirates en Vue !', '', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/pirates-en-vue', 164, 4, 7, 0, 5, 'Pirates', 'Pirates en vue est un jeu de réflexion pour 1 joueur qui contient 80 défis allant du plus simple au plus difficile répartis dans 4 modes de jeu.', 'https://cdn1.philibertnet.com/500972-large_default/pirates-en-vue-.jpg', 'https://www.youtube.com/watch?v=NpkbxRicDMM'),
 (776, 'Pagodes edition du Dragon', '', 1, 1, 'https://www.smartgames.eu/fr/jeux-pour-1-joueur/pagodes-%C3%A9dition-du-dragon', 164, 4, 7, 0, 5, '', '', '', ''),
@@ -2300,7 +2213,8 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (924, 'Yoxii', 'Jérémy Partinico', 2, 2, 'https://www.cosmoludo.com/_files/ugd/774d61_62ac7cf77c7b43ff80518bfa536d6d7e.pdf', 278, 1, 8, 0, 30, 'Abstrait', 'Pour gagner au Yoxii, vous devrez encercler le Totem avec vos pièces les plus fortes. Chaque joueur/se à son tour déplace le Totem d\'une case et place une de ses pièces sur le plateau. Attention, vous pourrez sauter par dessus vos pièces pour aller là où le terrain vous est favorable. Un jeu abstrait puissant, qui mélange Échecs et Go mais qui ne ressemble ni à l\'un, ni à l\'autre. Dans cet univers abstrait et minimal, vous apprendrez vite à trouver les positions d\'attaque et à vous défendre. Amusement garanti.', 'https://cdn3.philibertnet.com/580681-large_default/yoxii.jpg', 'https://www.youtube.com/watch?v=-xsdIyKvVe4'),
 (925, 'Hokito', 'Claude Leroy', 2, 2, 'https://www.cosmoludo.com/_files/ugd/774d61_60f257ed976d4eab91b3934483493139.pdf', 278, 1, 8, 0, 10, 'Abstrait', 'Dans Hokito, accumulez le plus de points en prenant le contrôle des tours de votre adversaire, créez des ponts et des chemins pour atteindre vos objectifs.', 'https://cdn2.philibertnet.com/580685-large_default/hokito.jpg', 'https://www.youtube.com/watch?v=6uVE6kqwc2s'),
 (926, 'Swip\'Sheep', 'Yann Dupont', 3, 5, 'https://www.djeco.com/data/rules/DJ05145_FR.pdf', 133, 4, 5, 0, 20, 'Animaux', 'Découvrez le jeu de cartes Swip\'Sheep de Djeco, un jeu de stratégie simple où réflexion et stratégie seront nécessaires pour déjouer les malices de ce jeu, un jeu de cartes pour les enfants à partir de 5 ans. Les loups attaquent, les chiens défendent; les moutons eux rapportent des points. Encore faut-il réussir à conserver ceux que l\'on a en main et à piquer ceux de vos adversaires.', 'https://cdn3.philibertnet.com/467923-large_default/swipship.jpg', 'https://www.youtube.com/watch?v=tu-RDnH5l_4'),
-(927, 'Mysterix', '', 2, 5, 'https://www.djeco.com/data/rules/DJ05096_FR.pdf', 133, 4, 4, 0, 30, 'Trouver L\'intrus', 'Mysterix est un jeu d\'observation et de rapidité pour les enfants à partir de 4 ans. Les joueurs exercent leur oeil lynx en débusquant les intrus qui se sont glissés dans les images.', 'https://cdn2.philibertnet.com/501537-large_default/mysterix.jpg', 'https://www.youtube.com/watch?v=zr3fpyqYXyo'),
+(927, 'Mysterix', '', 2, 5, 'https://www.djeco.com/data/rules/DJ05096_FR.pdf', 133, 4, 4, 0, 30, 'Trouver L\'intrus', 'Mysterix est un jeu d\'observation et de rapidité pour les enfants à partir de 4 ans. Les joueurs exercent leur oeil lynx en débusquant les intrus qui se sont glissés dans les images.', 'https://cdn2.philibertnet.com/501537-large_default/mysterix.jpg', 'https://www.youtube.com/watch?v=zr3fpyqYXyo');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (928, 'Piou Piou', 'Thierry Chapeau', 2, 5, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=2025', 133, 4, 6, 0, 30, 'Animaux', 'Un jeu de stratégie. Panique dans le poulailler : le renard rôde et les œufs n\'ont pas encore éclos ... Cot Cot codek!', 'https://cdn2.philibertnet.com/455837-large_default/piou-piou.jpg', 'https://www.youtube.com/watch?v=RjuN72BJzlw&t=1s'),
 (929, 'Pin Pon !', 'Julie Bregeot', 2, 4, 'https://undecent.fr/wp-content/uploads/2025/10/Pin-pon-.pdf', 133, 4, 3, 0, 30, 'Pompiers', 'Pin Pon ! est un jeu de société familial aux règles simples, parfait pour apprendre à jouer, à gagner ou à perdre tous ensemble. Un feu s\'est déclaré... la sirène retentit dans la caserne! Saurez-vous aider les pompiers à arriver à temps pour éteindre les flammes et sauver la maison?', 'https://cdn1.philibertnet.com/578367-large_default/pinpon-.jpg', 'https://www.youtube.com/watch?v=74muxZfh4dg'),
 (930, 'Chipe Cocos', 'Alexandre Droit', 2, 4, 'https://www.dropbox.com/s/bxk18dhs8ij0907/chipe_cocos.pdf?dl=0', 133, 4, 8, 0, 30, 'Nature, Animaux', 'Tapies dans la canopée, des bandes de singes se disputent les noix de coco. Quelle sera la bande la mieux organisée qui en récoltera le plus, tout en évinçant les singes rivaux avant l’arrivée du tigre ?  Chipe Cocos est un jeu de déplacement très simple où la stratégie et l\'anticipation sont primordiales.', 'https://cdn1.philibertnet.com/554362-large_default/chipe-cocos.jpg', ''),
@@ -2380,10 +2294,10 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1005, 'Top Trumps Battle Mat Harry Potter', '', 2, 6, 'https://regle.escaleajeux.fr/toptr_rg.pdf', 271, 1, 6, 0, 25, 'Harry Potter', 'Jouez avec vos héros favoris de la saga Harry Potter dans ce Battle Map Top Trumps Harry Potter. Plongez dans le monde magique d’Harry Potter et rejoignez tous vos héros préférés dans une série de duels stratégiques. Le jeu Battle Map Top Trumps Harry Potter se joue en plusieurs manches, c’est le premier joueur qui remporte 6 duels qui sera désigné le grand vainqueur ! ', 'https://www.winningmoves.fr/wp-content/uploads/5036905044592_1-300x300.jpg', 'https://www.youtube.com/watch?v=7wE1hB4MVfw'),
 (1006, 'Top Trumps Battle Mat Miraculous', '', 2, 6, 'https://regle.escaleajeux.fr/toptr_rg.pdf', 271, 1, 6, 0, 30, 'Superhéros, Fantastique', 'Dans Top Trumps, l’objectif du jeu est de récupérer toutes les cartes de ses adversaires en choisissant sa meilleure caractéristique des personnages de Miraculous Ladybug.', 'https://cdn1.philibertnet.com/482259-large_default/top-trumps-miraculous.jpg', 'https://www.youtube.com/watch?v=Ay45q7OBRVs'),
 (1007, 'Le Jeu des Cochons', 'David Moffat', 2, 10, 'https://regle.escaleajeux.fr/j_cch_rg.pdf', 271, 1, 7, 0, 25, 'Cochons (Dés)', 'Que ce soit avec des amis à une fête, dans le parc, pendant un trajet en train ou en vacances : Le jeu des Cochons est le jeu marrant à jouer sur le chemin ou à la maison et toujours prêt pour un grognement de rire !', 'https://cdn1.philibertnet.com/421635-large_default/jeu-de-cochon-big-pigs.jpg', 'https://www.youtube.com/watch?v=7unGLeTX4Bk'),
-(1008, 'Narcopolis', 'Amaury Montmoreau', 2, 5, 'https://www.play-in.com/pdf/rules_games/narcopolis_regles_fr.pdf', 298, 1, 14, 0, 45, 'Gangsters années 20', 'Deals de business, fights clubs, financements occultes de politiciens, assassinats et corruptions sont parmi les nombreuses actions possibles à Narcopolis. Dans ce jeu de stratégie, de bluff, et de de développement de ressources, tout est permis pour régler ses comptes avec ses amis. Tu as toujours rêvé d’être un gangster et de ne plus avoir de limites ? Narcopolis est ton nouveau terrain de jeu ! Plonge dans le grand bain, sois malin, diplomate, fourbe, sans pitié, et deviens le nouveau Boss de la ville. N\'oublie jamais : Sky and guns are the limits.', 'https://cdn2.philibertnet.com/566899-large_default/narcopolis.jpg', 'https://www.youtube.com/watch?v=eCBvIv0M4HQ'),
-(1009, 'Ethérium', 'François Berdeaux', 3, 6, 'https://gamefound.com/fr/projects/crapaud-celeste/etherium?ref=homepage-topactive_2', 267, 6, 14, 0, 90, 'Science-fiction, mystique', 'Etherium est une planète qui renferme en son sein une ressource précieuse: l\'Ether. Cette substance permet de remodeler la gravité et attise bien de convoitise. Six lunes gravitent autour d\'Etherium. Chacune d\'elle abrite un peuple unique qui compte bien prendre le contrôle du précieux Ether.  L\'équilibre était jusqu\'ici maintenu mais tout s\'apprête à  basculer.', 'https://www.crapaudceleste.com/images/etherium/ethreium_petit.jpg', 'https://www.youtube.com/watch?v=SHnqE-UAD5Q&t=1s'),
-(1010, 'Trio', 'Kaya Miyano', 3, 6, 'https://www.cocktailgames.com/wp-content/uploads/2022/11/trio_regles_BD.pdf', 128, 1, 7, 0, 15, 'Amérique', 'Trio est un jeu de cartes, simple et rapide, dans lequel vous devrez trouver les trios de cartes identiques parmi celles en jeu et dans les mains de vos adversaires.', 'https://www.cocktailgames.com/wp-content/uploads/2022/11/Trio_3D.png', 'https://www.youtube.com/watch?v=iYaCFK2JejM&t=4s');
+(1008, 'Narcopolis', 'Amaury Montmoreau', 2, 5, 'https://www.play-in.com/pdf/rules_games/narcopolis_regles_fr.pdf', 298, 1, 14, 0, 45, 'Gangsters années 20', 'Deals de business, fights clubs, financements occultes de politiciens, assassinats et corruptions sont parmi les nombreuses actions possibles à Narcopolis. Dans ce jeu de stratégie, de bluff, et de de développement de ressources, tout est permis pour régler ses comptes avec ses amis. Tu as toujours rêvé d’être un gangster et de ne plus avoir de limites ? Narcopolis est ton nouveau terrain de jeu ! Plonge dans le grand bain, sois malin, diplomate, fourbe, sans pitié, et deviens le nouveau Boss de la ville. N\'oublie jamais : Sky and guns are the limits.', 'https://cdn2.philibertnet.com/566899-large_default/narcopolis.jpg', 'https://www.youtube.com/watch?v=eCBvIv0M4HQ');
 INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
+(1009, 'Ethérium', 'François Berdeaux', 3, 6, 'https://gamefound.com/fr/projects/crapaud-celeste/etherium?ref=homepage-topactive_2', 267, 6, 14, 0, 90, 'Science-fiction, mystique', 'Etherium est une planète qui renferme en son sein une ressource précieuse: l\'Ether. Cette substance permet de remodeler la gravité et attise bien de convoitise. Six lunes gravitent autour d\'Etherium. Chacune d\'elle abrite un peuple unique qui compte bien prendre le contrôle du précieux Ether.  L\'équilibre était jusqu\'ici maintenu mais tout s\'apprête à  basculer.', 'https://www.crapaudceleste.com/images/etherium/ethreium_petit.jpg', 'https://www.youtube.com/watch?v=SHnqE-UAD5Q&t=1s'),
+(1010, 'Trio', 'Kaya Miyano', 3, 6, 'https://www.cocktailgames.com/wp-content/uploads/2022/11/trio_regles_BD.pdf', 128, 1, 7, 0, 15, 'Amérique', 'Trio est un jeu de cartes, simple et rapide, dans lequel vous devrez trouver les trios de cartes identiques parmi celles en jeu et dans les mains de vos adversaires.', 'https://www.cocktailgames.com/wp-content/uploads/2022/11/Trio_3D.png', 'https://www.youtube.com/watch?v=iYaCFK2JejM&t=4s'),
 (1011, 'Happy City - Grozilla', 'Airu & Toshiki Sato', 2, 5, 'https://www.cocktailgames.com/wp-content/uploads/2022/10/Happy_city_grozilla_regles_1221_BD.pdf', 128, 1, 10, 0, 45, 'Construction de ville', 'Happy City - Grozilla est une extension pour le jeu Happy City. Des monstres envahissent votre ville et vont bouleverser son développement !', 'https://cdn3.philibertnet.com/567017-large_default/happy-city-grozilla.jpg', 'https://www.youtube.com/watch?v=KYmcknQo-F8'),
 (1012, 'Super Mega Lucky Box', 'Phil Walker-Harding', 1, 6, 'https://www.cocktailgames.com/wp-content/uploads/2022/02/Regles_SMLB_0122_BD.pdf', 128, 2, 8, 0, 30, 'Abstrait', 'Un jeu trépidant d\'un plaisir sans égal ! Dévoilez les chiffres un par un, et rayez les cases correspondantes sur vos cartes. Si vous en obtenez trois à la suite, vous débloquerez des bonus qui vous permettront de rayer plus de cases, de déclencher des bonus encore plus importants et d\'augmenter votre score ! Tout le monde joue en même temps, alors on ne s\'ennuie jamais ! Pour gagner, il vous faudra un peu de stratégie et un peu de Super Mega Chance ! Un jeu simple, gratifiant et super fun !', 'https://cdn1.philibertnet.com/552782-large_default/super-mega-lucky-box.jpg', 'https://www.cocktailgames.com/regle-video-super-mega-lucky-box/'),
 (1013, 'Maudit Mot Dit', 'Nathalie Saunier, Rémi Saunier, Laurent Prin', 3, 6, 'https://www.cocktailgames.com/wp-content/uploads/2022/02/Maudit_mot_dit_regles_0122_BD.pdf', 128, 2, 12, 0, 30, 'Devinette, Mot', 'Maudit Mot Dit est un jeu dans lequel vous allez devoir faire deviner un mot en un nombre d\'indices imposé ! Mais attention à ce qu\'il ne soit pas deviné trop vite, ou pas deviné du tout ! Un jeu très malin dans une magnifique petite boite.', 'https://cdn1.philibertnet.com/542983-large_default/maudit-mot-dit.jpg', 'https://www.youtube.com/watch?v=YCilx3YiI8A'),
@@ -2467,7 +2381,8 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1095, 'Namiji', 'Antoine Bauza', 2, 5, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=5995', 122, 1, 8, 0, 45, 'Japon, Mer', 'Namiji, jeu d\'Antoine Bauza, est le successeur de Tokaido et se déroule dans le même univers. Dans Namiji, vous partirez en bateau de pêche et découvrirez nombre de merveilles marines.', 'https://cdn1.philibertnet.com/552535-thickbox_default/namiji.jpg', 'https://www.youtube.com/watch?v=R-dUWGspjQo'),
 (1096, 'A la Folie !', 'Romain Caterdjian', 2, 6, 'https://www.bioviva.com/fr/index.php?controller=attachment&id_attachment=278', 126, 4, 8, 0, 20, 'Découverte des autres', 'Dans ce jeu coopératif, les joueurs dès 8 ans tentent de deviner les goûts de leurs proches. En famille ou entre amis, au petit-déj’ ou à l’apéro… Dans À la folie, révélez-vous au travers de 112 situations et découvrez des facettes méconnues et surprenantes de la personnalité des autres joueurs !', 'https://www.bioviva.com/3176-large_default/a-la-folie.jpg', 'https://www.youtube.com/watch?v=906GJXihlsg&list=TLGGHqZ2V4mRfSgzMTAzMjAyMw&t=77s'),
 (1097, 'Time Collector', 'Florian Sirieix, Maréva Beauchamps', 2, 4, 'https://www.play-in.com/pdf/rules_games/time_collectors_-_regles_fr.pdf', 321, 1, 10, 0, 45, 'Fantaisie, Science Fiction', 'Grâce à l’invention de la machine à voyager dans le temps, il est désormais possible d’explorer notre planète passée. Une nouvelle génération d’explorateurs peut désormais partir à la découverte des richesses disparues. À l’aide de leur « holographeur temporel », ils collectionnent les merveilles du passé ; on les appelle les « TIME COLLECTORS ».', 'https://cdn3.philibertnet.com/570340-large_default/time-collectors.jpg', 'https://www.youtube.com/watch?v=xUh-0ZbrEYg'),
-(1098, 'TTMC 2: Tu Te Re-Mets Combien?', '', 2, 10, 'https://cdn.1j1ju.com/medias/6b/53/7d-ttmc-tu-te-mets-combien-regle.pdf', 219, 2, 14, 0, 30, 'Abstrait', 'TTMC revient avec 4028 nouvelles questions réparties en 540 cartes. Soyez toujours le premier à parcourir le plateau en répondant aux questions posées en vous auto-évaluant de 1 à 10.', 'https://www.tutemetscombien.fr/wp-content/uploads/2022/07/PIXIEGAMES_TTMC2_FACE-small-300x300.png', 'https://www.youtube.com/watch?v=a3H_EJil4i0'),
+(1098, 'TTMC 2: Tu Te Re-Mets Combien?', '', 2, 10, 'https://cdn.1j1ju.com/medias/6b/53/7d-ttmc-tu-te-mets-combien-regle.pdf', 219, 2, 14, 0, 30, 'Abstrait', 'TTMC revient avec 4028 nouvelles questions réparties en 540 cartes. Soyez toujours le premier à parcourir le plateau en répondant aux questions posées en vous auto-évaluant de 1 à 10.', 'https://www.tutemetscombien.fr/wp-content/uploads/2022/07/PIXIEGAMES_TTMC2_FACE-small-300x300.png', 'https://www.youtube.com/watch?v=a3H_EJil4i0');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (1099, 'Feu de camp', 'Rob Sparks', 2, 6, 'https://boardgamegeek.com/filepage/198072/tinderblox-rulebook', 153, 2, 8, 0, 10, 'Concours de feu de camp', 'Vous participez à un concours du plus beau feu de camps et il vous faudra jouer avec le feu. Plus vous prendrez de risques pour l\'embellir plus vous risquerez de le perdre ! Aurez vous les nerfs assez solides ? Piochez une carte et respecter les éléments et les contraintes demandés. Utilisez la pince pour saisir les éléments Allumez le feu mais ne vous brûlez pas !', 'https://matagot-friends.com/france/5649-home_default/tinderblox-fr.jpg', ''),
 (1100, 'Space Aztecs', 'Romaric Galonnier', 2, 5, 'https://cdn.1j1ju.com/medias/d0/fb/d7-space-aztecs-regle.pdf', 151, 1, 8, 0, 15, 'Aventure, Sciences Fiction', 'Les extra-terrestres attaquent ! Votre responsabilité de dirigeante de cité aztèque est de réunir vos habitants et les protéger d’un kidnapping imminent. La meilleure à cette tâche remportera la partie.', 'https://blackrockgames.fr/upload/cache/id:83psEngxwqAAAAAAAAAzzww480h320.jpeg', 'https://videoregles.net/videoregle/space-aztecs'),
 (1101, 'Legacy of the crown', '', 1, 6, '', 322, 7, 14, 0, 120, 'Angleterre victorienne, Steampunk', '', 'https://www.legacyofthecrown.com/images/title.webp', ''),
@@ -2572,10 +2487,10 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1203, 'La Forêt de Savernake', 'Rodrigo Rego', 2, 4, 'https://drive.google.com/drive/folders/1SOGhIg_HkOK8xu4Ow1veOCLCbE24L7E5', 146, 1, 10, 0, 30, 'Animaux, Nature', 'Dans la Forêt de Savernake, construisez votre propre chemin où les animaux et la nourriture apparaîtront au fur et à mesure. Pour obtenir le meilleur score, les joueurs doivent s\'assurer que, sur chaque chemin, les animaux peuvent collecter leur nourriture préférée.', 'https://cdn2.philibertnet.com/613814-large_default/la-foret-de-savernake.jpg', 'https://www.youtube.com/watch?v=8WYaBO3wN8Q&t=11s'),
 (1204, 'Sync or Swim', 'Lucas Hedgren, Divya Hedgren', 3, 6, 'https://drive.google.com/drive/folders/1ub9VMzxOrt94Zy2evNQ7747OJTevem8Z', 146, 1, 14, 0, 45, 'Sports, natation synchronisée', 'Inspiré de la natation synchronisée, Sync or Swim met l\'accent sur le travail d\'équipe, la collaboration et la communication.', 'https://cdn3.philibertnet.com/606297-large_default/sync-or-swim.jpg', 'https://www.youtube.com/watch?v=eyfZZ2xdaJA'),
 (1205, 'Balloon Pop', 'Mikko Punakallio', 2, 4, 'https://iello.fr/wp-content/uploads/2024/03/Balloon-Pop_Rulebook_FR_V1_Light.pdf', 146, 1, 8, 0, 30, 'Abstrait', 'Balloon Pop est un jeu de stratégie abstrait pour 2 à 4 joueurs. Un jeu fun, coloré, tactique et… explosif !', 'https://cdn3.philibertnet.com/609216-large_default/balloon-pop.jpg', 'https://www.youtube.com/watch?v=skVIUYpP4rA&t=6s'),
-(1206, 'Mino Dice', 'Manfred Reindl', 2, 6, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6381', 146, 1, 8, 0, 30, 'Mythologie', 'Mino Dice reprend le principe du célèbre jeu Skull King mais dans une version avec des dés ! Faites des plis avec des dés et devinez combien de plis vous allez faire ou pas avant chaque manche.', 'https://cdn3.philibertnet.com/594661-large_default/mino-dice.jpg', 'https://www.youtube.com/watch?v=YnUi-jMD1Aw&t=1s'),
-(1207, 'The Crew : Mission Sous-Marine', 'Thomas Sing', 3, 5, 'https://iello.fr/wp-content/uploads/2021/09/The-Crew-2_Manual_FR_Light.pdf', 146, 1, 10, 0, 30, 'Océan, Exploration', 'The Crew : Mission Sous-Marine est la suite indépendante de The Crew. Le jeu possède le même mécanisme innovant de prise de tours en coopération que le jeu original, mais avec de nouvelles surprises passionnantes !', 'https://cdn3.philibertnet.com/495745-large_default/the-crew-mission-sous-marine.jpg', 'https://www.youtube.com/watch?v=gPUoROQW-MY&t=3s'),
-(1208, 'Cache Cache Loustic', 'Bertrand Roux', 2, 6, 'https://drive.google.com/drive/folders/1SiUkfkan7gcX9BTUtqbU8vpFFuc-TYB_', 228, 4, 3, 0, 15, 'Animaux', 'Cache-Cache Loustic est un jeu de société adorable et interactif conçu pour stimuler l’imagination et le développement des tout-petits.', 'https://cdn1.philibertnet.com/606559-large_default/cache-cache-loustic.jpg', 'https://www.youtube.com/watch?v=sDws27q82mU&t=2s');
+(1206, 'Mino Dice', 'Manfred Reindl', 2, 6, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6381', 146, 1, 8, 0, 30, 'Mythologie', 'Mino Dice reprend le principe du célèbre jeu Skull King mais dans une version avec des dés ! Faites des plis avec des dés et devinez combien de plis vous allez faire ou pas avant chaque manche.', 'https://cdn3.philibertnet.com/594661-large_default/mino-dice.jpg', 'https://www.youtube.com/watch?v=YnUi-jMD1Aw&t=1s');
 INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
+(1207, 'The Crew : Mission Sous-Marine', 'Thomas Sing', 3, 5, 'https://iello.fr/wp-content/uploads/2021/09/The-Crew-2_Manual_FR_Light.pdf', 146, 1, 10, 0, 30, 'Océan, Exploration', 'The Crew : Mission Sous-Marine est la suite indépendante de The Crew. Le jeu possède le même mécanisme innovant de prise de tours en coopération que le jeu original, mais avec de nouvelles surprises passionnantes !', 'https://cdn3.philibertnet.com/495745-large_default/the-crew-mission-sous-marine.jpg', 'https://www.youtube.com/watch?v=gPUoROQW-MY&t=3s'),
+(1208, 'Cache Cache Loustic', 'Bertrand Roux', 2, 6, 'https://drive.google.com/drive/folders/1SiUkfkan7gcX9BTUtqbU8vpFFuc-TYB_', 228, 4, 3, 0, 15, 'Animaux', 'Cache-Cache Loustic est un jeu de société adorable et interactif conçu pour stimuler l’imagination et le développement des tout-petits.', 'https://cdn1.philibertnet.com/606559-large_default/cache-cache-loustic.jpg', 'https://www.youtube.com/watch?v=sDws27q82mU&t=2s'),
 (1209, 'Fluffy Valley', 'Théo Riviere, Maxime Rambourg', 1, 4, 'https://ilo307.com/Public/img/catalog/Fluffy-Valley_R%C3%A8gles_FR_LR.pdf', 228, 4, 6, 0, 30, 'Animaux', 'Fluffy Valley est un jeu coopératif et immersif pour s\'initier au jeu de placement. Approvisionnez vos terriers pour passer un hiver tranquille !', 'https://cdn3.philibertnet.com/588352-large_default/fluffy-valley.jpg', 'https://www.youtube.com/watch?v=YwSp-Sk3cVI&t=1s'),
 (1210, 'Courtisans', 'Anthony Perone, Romaric Galonnier', 2, 5, 'https://www.dropbox.com/scl/fi/ka90lane9dat9q4kg5kzl/courtisans_r-gles_fr.pdf?rlkey=bc0t20q1om8konll28f78fut5&e=1&dl=0', 130, 2, 8, 0, 20, 'Moyen Age', 'Ce soir a lieu le banquet de la reine. Un évènement majeur où les familles du royaume veulent se montrer à leur avantage. Les manœuvres vont bon train et tous les coups sont permis pour placer son favori sur le devant de la scène.', 'https://m.media-amazon.com/images/I/712V6cV4ADL.jpg', 'https://www.youtube.com/watch?v=7h5bvSxWR4U&t=1s'),
 (1211, 'Dracula vs Van Helsing', 'Théo Riviere, Maxime Rambourg', 2, 2, 'https://www.play-in.com/pdf/rules_games/dracula_vs_van_helsing_-_regles_fr_.pdf', 233, 1, 10, 0, 45, 'Horreur, Vampire, Surnaturel', 'Dracula vs Van Helsing est le jeu idéal pour les amateurs de jeux de duel tactiques. Il combine une prise en main rapide avec une profondeur stratégique qui vous immergera complètement dans ce conflit légendaire entre le bien et le mal.', 'https://cdn3.philibertnet.com/594064-thickbox_default/dracula-vs-van-helsing.jpg', 'https://www.youtube.com/watch?v=AvBV8WYET74&t=2s'),
@@ -2681,7 +2596,8 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1311, '14 Minutes', 'Joe Slack, Sylvain Plante', 1, 4, 'http://www.badboomgames.com/wp-content/uploads/2023/11/14-Frantic-Minutes-Rules-FR_compressed.pdf', 335, 1, 8, 0, 14, 'Science, Survie', 'Les ingénieurs travaillent ensemble pour résoudre des énigmes en temps réel à l\'aide de circuits en forme de polyomino. Dépêchez-vous ! L\'horloge tourne ! 14 Minutes! est un jeu coopératif en temps réel. Vous gagnez ou perdez tous ensemble.', 'http://www.badboomgames.com/wp-content/uploads/2023/11/Avant-boite.jpg', ''),
 (1312, 'Medieval Academy', 'Nicolas Poncin', 1, 5, 'https://bluecocker.com/wp-content/uploads/2023/07/MA_Rulebook_FR_V11.pdf', 107, 1, 8, 0, 30, 'Médiéval', 'Devenez le meilleur écuyer en tentant d’être le plus performant dans chaque Entraînement pour gagner des points de Chevalerie.', 'https://bluecocker.com/wp-content/uploads/2023/07/MA_image_mise_en_avt_site_petit-1.png', 'https://www.youtube.com/watch?v=l1GVoV2d-8M'),
 (1313, 'Apex', 'Julien Vaucanson', 2, 6, 'https://borderlineeditions.com/apex/Apex-rulebook-FR-web.pdf', 244, 6, 10, 0, 45, 'Science Fiction', 'Dans Apex, votre objectif est de mener votre civilisation à la domination galactique en accumulant des points de victoire à travers l\'expansion, la technologie, et la guerre.', 'https://www.ludifolie.com/51309-large_default/apex.jpg', 'https://www.youtube.com/watch?v=19v4q-U6IXY&t=1s'),
-(1314, 'Horticolor', 'Julk', 2, 4, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6783', 284, 1, 10, 0, 40, 'Nature', 'Réalisez le plus beau jardin ! Plantez-y vos légumes, vos fleurs et vos arbres et laissez venir les insectes pollinisateurs, les Llombrics et autres petits animaux. Quelques indésirables s’inviteront dans la partie, mais hérissons et mésanges sauront en venir à bout.', 'https://www.festivaldujeu-montpellier.org/wp-content/uploads/2025/04/horticolor.png', 'https://www.youtube.com/watch?v=53wDNmEFayo'),
+(1314, 'Horticolor', 'Julk', 2, 4, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6783', 284, 1, 10, 0, 40, 'Nature', 'Réalisez le plus beau jardin ! Plantez-y vos légumes, vos fleurs et vos arbres et laissez venir les insectes pollinisateurs, les Llombrics et autres petits animaux. Quelques indésirables s’inviteront dans la partie, mais hérissons et mésanges sauront en venir à bout.', 'https://www.festivaldujeu-montpellier.org/wp-content/uploads/2025/04/horticolor.png', 'https://www.youtube.com/watch?v=53wDNmEFayo');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (1315, 'POP', 'Kamoto & Mr. Kou', 2, 4, 'https://drive.google.com/file/d/1ichMrIewpbdjnY3B8yqzHaig1M-BZwJz/view', 339, 1, 8, 0, 20, 'Couleurs', 'Vous êtes un gardien des couleurs du Royaume des Couleurs. Une grande fête approche et de nombreuses couleurs sont attendues ! Il est probable qu\'un record d\'affluence soit battu, et l\'attente pour entrer risque d\'être explosive ! Vous faites partie de l’équipe stationnée à l\'entrée. Vous devrez être vigilant, car lorsque deux couleurs identiques se retrouvent côte à côte, elles explosent et peuvent provoquer une réaction en chaîne ! Organisez les couleurs avec habileté afin que la fête ne tourne pas au fiasco avant même de commencer !', 'https://musokashop.com/cdn/shop/files/POP---MUSOKA-GAMES---3D_2.png?v=1729586565&width=823', ''),
 (1316, 'Candy Spiders Leopards', 'Shunsuke Tanabe, Rio Kariya', 2, 5, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6721', 339, 1, 10, 0, 45, 'Animaux', 'Candy Spiders Leopards est un jeu de plis et de collection dans lequel vous divisez votre main de 9 cartes en 3 mains de 3 cartes pour essayer de récupérer les objets qui tombent du ciel.', 'https://cdn1.philibertnet.com/685437-large_default/candy-spiders-leopards.jpg', 'https://www.youtube.com/watch?v=xTZrTlPQJUk&t=1s'),
 (1317, 'Sifflard', 'Ted Etienne', 3, 6, 'https://www.arkada.studio/regles-sifflard', 248, 2, 8, 0, 20, 'Alimentation', 'Dans ce jeu d\'ambiance, tentez de dérober des tranches de saucissons sans vous faire attraper !', 'https://images.squarespace-cdn.com/content/v1/65f6ee2fdfc1a4278a3c0a80/fc950e38-e004-42ed-b803-4865c43e9ab8/Salami_StandardEdition_002.png', 'https://www.youtube.com/watch?v=sTiGACLWnEs&t=1s'),
@@ -2781,11 +2697,11 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1411, 'Cthulhu Nightmare', 'Pascal Bernard', 2, 6, 'https://ludospheremag.com/cthulhu-nightmare/', 340, 2, 12, 0, 30, 'Univers de Lovecraft', 'Au crépuscule des temps, le culte des Grands Anciens est né. Des créatures cyclopénnes ont émergé, semant l’horreur dans notre réalité. Des adeptes cherchent à ériger un temple pour réveiller Cthulhu et plonger l’humanité dans le chaos. Désormais, des explorateurs et aventuriers ésotériques solitaires s’opposent à eux, prêts à tout pour nous sauver de l’abîme.', 'https://www.coop-breizh.fr/46352-medium_default/cthulhu-nightmare-jeu-de-cartes.jpg', ''),
 (1412, 'Tic Tac Top', 'Simona Greco, Marco Rava', 3, 7, 'https://explor8.com/presse/web/tt/TT_rules_FR.pdf', 238, 2, 8, 0, 20, 'Vie quotidienne, Mots et Vocabulaire', 'Dans Tic Tac Top, choisissez des mots et organisez les dans votre grille de morpion ! Formez le plus de lignes de 3 mots communs avec ceux choisis par le leader !', 'https://cdn3.philibertnet.com/701179-large_default/tic-tac-top.jpg', 'https://www.youtube.com/watch?v=l3HbtXNX5hA&t=8s'),
 (1413, 'Rise & Fall', 'Christophe Boelinger', 2, 4, 'https://debacle.fr/wp-content/uploads/2024/08/JLY002-3760184940468-Rise-and-Fall-Regles.pdf', 279, 6, 14, 0, 45, 'Fantastique', 'Rise & Fall est un jeu de stratégie et de contrôle de territoire où chaque joueur dirige une civilisation en expansion dans un monde fantastique.', 'https://cdn2.philibertnet.com/650932-large_default/rise-fall.jpg', 'https://www.youtube.com/watch?v=3TFjlUYa_oE&t=8s'),
-(1414, 'Transorient express', 'Franz Couderc', 2, 4, '', 279, 1, 8, 0, 30, 'Voyage', 'Transorient Espress est un jeu qui invite les joueurs à embarquer à bord du légendaire train éponyme.', 'https://d3uixa1v7930vx.cloudfront.net/large_Transorient_Express_884d606caf.png', ''),
+(1414, 'Transorient express', 'Franz Couderc', 2, 4, '', 279, 1, 8, 0, 30, 'Voyage', 'Transorient Espress est un jeu qui invite les joueurs à embarquer à bord du légendaire train éponyme.', 'https://d3uixa1v7930vx.cloudfront.net/large_Transorient_Express_884d606caf.png', '');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (1415, 'Versailles Garden', 'Fabien Gridel', 2, 4, '', 279, 1, 8, 0, 30, 'Jardinage', 'Sortez vos plans et vos bêches, il est temps de se retrousser les manches et de montrer aux autres apprentis paysagistes qui est le chef des jardins. \r\nDans ce jeu de société raffiné mais sans pitié, vous devrez maîtriser les enchères, le placement des tuiles et jouer des coudes pour terminer la création d\'un jardin si somptueux que Le Nôtre lui-même vous félicitera.', 'https://www.myludo.fr/img/jeux/1733988749/300/cs/70239.png', ''),
 (1416, 'Ironwood', 'Julien Chaput, Maël Brunet', 1, 2, 'https://www.youtube.com/watch?v=KLbtFCbm15s', 136, 6, 12, 0, 45, 'Fantastique', 'Un conflit millénaire déchire le pays de Sylvacier.... Ironwood est un jeu tactique pour 1 ou 2 joueurs, à règles légères, hautement asymétrique et basé sur des cartes.', 'https://cdn3.philibertnet.com/685421-large_default/ironwood.jpg', 'https://www.youtube.com/watch?v=KLbtFCbm15s'),
-(1417, 'Premier de Cordée XL', 'Romain Eyheramendy, Semir Kryidy', 2, 2, 'https://idgroupe.dam-broadcast.com/pm_10541_1413_1413114-dutodf1jfg.pdf?hash=482808b86dd80a0551f858db30572b5b', 283, 1, 7, 0, 10, 'Nature', 'Version géante du jeu Premier de Cordée. Au cœur de la montagne, deux cordées de 5 grimpeurs s\'affrontent pour être la plus rapide à atteindre le sommet. Quel joueur sera le plus stratégique pour parvenir à hisser en premier sa cordée en haut de la montagne ?', 'https://cdn2.philibertnet.com/674551-large_default/premier-de-cordee-version-geante.jpg', 'https://www.youtube.com/watch?v=2prApdq9goY');
-INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
+(1417, 'Premier de Cordée XL', 'Romain Eyheramendy, Semir Kryidy', 2, 2, 'https://idgroupe.dam-broadcast.com/pm_10541_1413_1413114-dutodf1jfg.pdf?hash=482808b86dd80a0551f858db30572b5b', 283, 1, 7, 0, 10, 'Nature', 'Version géante du jeu Premier de Cordée. Au cœur de la montagne, deux cordées de 5 grimpeurs s\'affrontent pour être la plus rapide à atteindre le sommet. Quel joueur sera le plus stratégique pour parvenir à hisser en premier sa cordée en haut de la montagne ?', 'https://cdn2.philibertnet.com/674551-large_default/premier-de-cordee-version-geante.jpg', 'https://www.youtube.com/watch?v=2prApdq9goY'),
 (1418, 'Opération Noisettes', 'Emilie Soleil,  Jérôme Soleil', 1, 4, 'https://www.didacto.com/index.php?controller=attachment&id_attachment=3899', 283, 4, 3, 0, 10, 'Nature, Animaux', 'Opération Noisettes est un jeu d\'habileté sonore, dans lequel vous devrez récupérer des noisettes et les déposer dans l\'arbre sans réveiller la belette.', 'https://cdn3.philibertnet.com/730543-large_default/operation-noisettes.jpg', 'https://www.youtube.com/watch?v=RRA8yjHHiyU'),
 (1419, 'Ouisti\'Plouf XL', 'Thomas Favrelière', 2, 4, 'https://www.didacto.com/index.php?controller=attachment&id_attachment=3725', 283, 4, 4, 0, 10, 'Animaux', 'Retourne les bonnes tuiles Hippo pour faire traverser la rivière à tous tes Ouisti\' sans faire plouf !', 'https://cdn1.philibertnet.com/613489-large_default/ouisti-plouf.jpg', 'https://www.youtube.com/watch?v=aIIFs5AvbuQ&t=1s'),
 (1420, 'Beyond the Horizon', 'Adam Hill, Ben Pinchback, Dennis K. Chan, Matt Riddle', 2, 4, 'https://www.play-in.com/pdf/rules_games/beyond_the_horizon_fr.pdf', 136, 3, 14, 0, 120, 'Civilisation, Simulation économique', 'Beyond the Horizon est un jeu de civilisation dans lequel les joueurs s’affrontent pour devenir la société la plus influente de l’histoire en s’appuyant sur l’exploration, l’expansion, le développement, la production, la recherche et les avancées technologiques.', 'https://cdn2.philibertnet.com/669268-large_default/beyond-the-horizon.jpg', 'https://www.youtube.com/watch?v=LlddpVHhqW0'),
@@ -2886,7 +2802,8 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1515, 'Very Bad Lands - T-Rex', 'Marc Larivière', 3, 8, 'https://www.gigamic.com/index.php?controller=attachment&id_attachment=541', 407, 1, 8, 0, 20, 'Dinosaures', 'Dans Very Bad Lands vous incarnez des espèces de dinosaures qui luttent pour leur existence. Chaque espèce possède un pouvoir qui change la façon de jouer en apportant tantôt du chaos, tantôt du contrôle. Votre seul objectif est de survivre... Juste un peu plus longtemps.', 'https://cdn1.philibertnet.com/656071-large_default/very-bad-lands-t-rex.jpg', 'https://www.youtube.com/watch?v=gvC27s2zeqc'),
 (1516, 'Littoral', 'Brian Burgoyne', 1, 5, 'https://undecent.fr/wp-content/uploads/2024/04/Littoral-Regles-FR_compressed.pdf', 407, 1, 8, 0, 20, 'Océan', 'Littoral est un jeu de stop ou encore dans lequel les joueurs tentent de créer leur propre littoral avec les éléments que la mer leur envoie. Le compagnon parfait des vacances.', 'https://cdn2.philibertnet.com/616608-large_default/littoral.jpg', 'https://www.youtube.com/watch?v=a2eO9sPkDIs'),
 (1517, 'Mito', 'Lukas Brand, Emely Brand', 3, 5, 'https://www.gigamic.com/index.php?controller=attachment&id_attachment=48', 138, 1, 7, 0, 15, 'Animaux', 'Mito est un jeu de cartes délirant dans lequel les joueurs ont pour objectif de se débarrasser en premier de leurs cartes en les posant sur la pile commune ou en trichant. Tous les coups sont permis !', 'https://cdn3.philibertnet.com/377962-large_default/mito.jpg', 'https://www.youtube.com/watch?v=pevuIEdAe7w'),
-(1518, 'Kéblo', 'Lena & Günter Bur', 2, 8, 'https://www.play-in.com/pdf/rules_games/keblo_regles_fr.pdf', 138, 2, 7, 0, 20, 'Animaux, Vampires', 'Kéblo est un jeu simple et rapide, dans lequel Fred la chauve-souris va donner des contraintes aux joueurs qui vont devoir réaliser des défis !', 'https://cdn3.philibertnet.com/509417-large_default/keblo.jpg', 'https://www.youtube.com/watch?v=Jj02X9FrJg0'),
+(1518, 'Kéblo', 'Lena & Günter Bur', 2, 8, 'https://www.play-in.com/pdf/rules_games/keblo_regles_fr.pdf', 138, 2, 7, 0, 20, 'Animaux, Vampires', 'Kéblo est un jeu simple et rapide, dans lequel Fred la chauve-souris va donner des contraintes aux joueurs qui vont devoir réaliser des défis !', 'https://cdn3.philibertnet.com/509417-large_default/keblo.jpg', 'https://www.youtube.com/watch?v=Jj02X9FrJg0');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (1519, 'Le poker des cafards', 'Jacques Zeimet', 2, 6, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=297', 138, 1, 8, 0, 15, 'Animaux', 'Le Poker des Cafards est un jeu de bluff, simple et rapide dans lequel les joueurs se refilent l\'air de rien de drôles de petites bêtes. Dans ce jeu de cartes, pour gagner, il faudra savoir prendre des risques au bon moment.', 'https://cdn3.philibertnet.com/377954-large_default/le-poker-des-cafards.jpg', 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=297'),
 (1520, 'Salade de Cafards', 'Jacques Zeimet', 2, 6, 'https://www.play-in.com/pdf/rules_games/salade_de_cafards_regles_fr.pdf', 138, 2, 6, 0, 15, 'Animaux, Alimentation', 'Dans ce jeu de défausse effréné, la tomate s\'apelle parfois poivron, salade, chou-fleur ou effectivement ... tomate !', 'https://cdn1.philibertnet.com/377958-large_default/salade-de-cafards.jpg', 'https://www.youtube.com/watch?v=8hkz4bepNNE'),
 (1521, 'Maudits Criquets', 'Jacques Zeimet', 2, 6, 'https://www.play-in.com/pdf/rules_games/maudits_cafards_-_regle_fr.pdf', 138, 2, 8, 0, 20, 'Animaux', 'Dans Maudits Criquets vous devez cultiver le meilleur jardin possible sans que les sauterelles ne le détruisent.', 'https://cdn1.philibertnet.com/575048-large_default/maudits-criquets.jpg', ''),
@@ -2986,12 +2903,12 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1615, 'Happy Letters', 'Erwan Morin, Thierry Saeys', 2, 5, 'https://www.tikieditions.com/wp-content/uploads/2025/10/Happy-Letters-2025-10-Regles.pdf', 103, 1, 10, 0, 30, 'Vie quotidienne', 'Trouvez un mot lié au thème qui comprend un maximum de lettres d’une ligne ou d’une colonne, et soyez le premier à remplir votre grille. Le jeu comporte plusieurs niveaux pour que chacun puisse l’emporter.', 'https://cdn2.philibertnet.com/765326-large_default/happy-letters.jpg', 'https://www.youtube.com/watch?v=3qOw25RPROI'),
 (1616, 'Cosmo Builder', 'Pierrine Capelle', 2, 6, '', 430, 1, 8, 0, 15, 'Espace', 'Être le premier à construire sa ville spatiale en suivant les instructions du plan.', 'https://www.okkazeo.com/images/jeux/cosmo-builder.webp', ''),
 (1617, 'Moustache', 'Jules Messaud, Alexandre Aguilar', 3, 6, 'https://media.play-in.com/pdf/rules_games/moustache_fr.pdf', 151, 2, 10, 0, 30, 'Humour, Animaux', 'Dans Moustache, bluff, adaptation et sens du timing sont de mise pour tirer votre épingle du jeu dans cette compétition en constante évolution.', 'https://cdn3.philibertnet.com/768458-large_default/moustache.jpg', 'https://www.youtube.com/watch?v=2RMK-2GuDWg'),
-(1618, 'Le Petit Théâtre', 'Gricha German, Quentin Guidotti', 1, 4, 'https://www.facebook.com/levoyageheure/videos/petit-th%C3%A9%C3%A2tre-prologue/1622350759050125/', 151, 1, 8, 0, 30, 'Lettres, Arts', 'Le Petit Théâtre est un jeu coopératif où vous devrez collaborer pour mettre en scène une pièce de théâtre inédite. En utilisant des cartes Personnage et Verbe, vous allez former des phrases qui permettront aux comédiens et comédiennes d’accomplir des actions sur la scène.', 'https://cdn1.philibertnet.com/826296-large_default/le-petit-theatre.jpg', 'https://www.facebook.com/levoyageheure/videos/petit-th%C3%A9%C3%A2tre-prologue/1622350759050125/'),
+(1618, 'Le Petit Théâtre', 'Gricha German, Quentin Guidotti', 1, 4, 'https://www.facebook.com/levoyageheure/videos/petit-th%C3%A9%C3%A2tre-prologue/1622350759050125/', 151, 1, 8, 0, 30, 'Lettres, Arts', 'Le Petit Théâtre est un jeu coopératif où vous devrez collaborer pour mettre en scène une pièce de théâtre inédite. En utilisant des cartes Personnage et Verbe, vous allez former des phrases qui permettront aux comédiens et comédiennes d’accomplir des actions sur la scène.', 'https://cdn1.philibertnet.com/826296-large_default/le-petit-theatre.jpg', 'https://www.facebook.com/levoyageheure/videos/petit-th%C3%A9%C3%A2tre-prologue/1622350759050125/');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (1619, 'Petals', 'Thomas Nougaret, Charlec', 1, 4, 'https://debacle.fr/wp-content/uploads/2025/12/JBE005-3760174130169-Petals-Regles-Light.pdf', 284, 1, 8, 0, 30, 'Nature', 'Créez une prairie en fleurs ! Dans ce jeu de stratégie inspiré de la nature, vous assemblez des pétales pour former de magnifiques fleurs et attirer les pollinisateurs tout en composant le plus beau parterre possible.', 'https://cdn1.philibertnet.com/830639-large_default/petals.jpg', 'https://www.youtube.com/watch?v=dK9GE25NdtU'),
 (1620, 'Paire de Choc', 'Yohan Callet, Amandine Cartet', 2, 10, 'https://undecent.fr/wp-content/uploads/2025/10/Paire-de-choc.pdf', 452, 2, 16, 0, 30, 'Humour, Vie quotidienne, Quiz', 'Paire de choc est un jeu d\'ambiance contenant 300 questions décalées auxquelles les joueurs devront se comparer à leurs voisins de tablée et poser des cartes \"toi\" ou \"moi\".', 'https://cdn3.philibertnet.com/782322-large_default/paire-de-choc.jpg', 'https://www.youtube.com/watch?v=aWfX0mgftIc&t=1s'),
 (1621, 'Blind Jack', 'Nicolas Méra, Maxime Turrière, Marc Méra, Alexis Leclercq', 2, 10, 'https://undecent.fr/wp-content/uploads/2025/10/Blind-Jack.pdf', 452, 2, 10, 0, 30, 'Quiz, Connaissances', 'Blind Jack est un jeu de questions dans lequel les joueurs s\'affrontent en équipe pour trouver les bonnes réponses, mais sans dépasser la barre des 21 points.', 'https://cdn3.philibertnet.com/752638-large_default/blind-jack.jpg', 'https://www.youtube.com/watch?v=ff-D6FQ6QJ4'),
-(1622, 'Suit Suite', 'Rémi Bernard', 2, 5, 'https://www.sortons-jouer.fr/wp-content/uploads/2026/03/Suit-Suite.pdf', 453, 1, 8, 0, 30, 'Abstrait', 'Dans Suit Suite agencez vos cartes, gênez vos adversaires et confectionnez des suites, mais avec élégance et goût ! Obtenez de précieux boutons et imposez votre style singulier dans une partie raffinée et animée.', 'https://cdn1.philibertnet.com/771761-large_default/suit-suite.jpg', 'https://www.youtube.com/watch?v=hEnZfoiBrFo&t=1s');
-INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
+(1622, 'Suit Suite', 'Rémi Bernard', 2, 5, 'https://www.sortons-jouer.fr/wp-content/uploads/2026/03/Suit-Suite.pdf', 453, 1, 8, 0, 30, 'Abstrait', 'Dans Suit Suite agencez vos cartes, gênez vos adversaires et confectionnez des suites, mais avec élégance et goût ! Obtenez de précieux boutons et imposez votre style singulier dans une partie raffinée et animée.', 'https://cdn1.philibertnet.com/771761-large_default/suit-suite.jpg', 'https://www.youtube.com/watch?v=hEnZfoiBrFo&t=1s'),
 (1623, 'Dozito', 'Simon Moulard, Alex Fortineau', 2, 5, 'https://dozito.fr/assets/Regles-version_grand_ecran_vf.pdf', 454, 1, 8, 0, 30, 'Couleurs, Nombres, Chiffres', 'Dozito est un jeu de cartes rapide et coloré où les joueurs s\'affrontent pour construire la grille 4x3 la plus efficace en plaçant les cartes numérotées de 1 à 12 à leur emplacement correct.', 'https://cdn2.philibertnet.com/835072-large_default/dozito.jpg', 'https://www.youtube.com/watch?v=ADXm-BgTvgg'),
 (1624, 'Patata - Version Famille', 'Mickaël Morelli, Minh Nguyen', 2, 10, 'https://www.didacto.com/index.php?controller=attachment&id_attachment=3822', 455, 2, 18, 0, 30, 'Alimentation', 'Le jeu Patata, revisite le principe de cette bonne vieille patate chaude. Un jeu d’ambiance pour briser la glace, oser vous dire des trucs que vous n’auriez jamais cru et découvrir des facettes de votre entourage que vous n’auriez jamais imaginées.', 'https://cdn1.philibertnet.com/754298-large_default/patata-version-famille.jpg', 'https://www.youtube.com/watch?v=PVrYDzSFFXY'),
 (1625, 'Daydream', 'Benoit Turpin, Anthony Perone', 1, 5, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6750', 440, 1, 8, 0, 30, 'Vie quotidienne', 'Dans Daydream vous devez dessiner le plus d’objets sur l’étagère pour remporter la partie. Pour cela, remplissez vos grilles de nuages simultanément à l’aide des chiffres indiqués par les dés.', 'https://cdn1.philibertnet.com/700331-large_default/daydream.jpg', 'https://www.youtube.com/watch?v=GMMjLWF3sG0&t=1s'),
@@ -3002,7 +2919,7 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1630, 'Défis Nature - Bébés animaux', '', 2, 6, 'https://www.bioviva.com/fr/index.php?controller=attachment&id_attachment=310', 126, 1, 7, 0, 30, 'Animaux', 'Défis Nature - Bébés animaux vous emmène à la rencontre des bébés animaux les plus mignons de la planète ! Découvrez leurs caractéristiques, puis pariez sur leurs points forts pour remporter la partie. Alors, prêts à relever le défi ?', 'https://cdn2.philibertnet.com/823645-large_default/defis-nature-bebes-animaux.jpg', 'https://www.youtube.com/watch?v=vX7Bf3TpATM&list=TLGG2DX13JCqQ_kxODAzMjAyNA&t=1s'),
 (1631, 'Défis Nature - Mythes vikings', '', 2, 6, 'https://www.bioviva.com/fr/index.php?controller=attachment&id_attachment=309&_gl=1*gacsib*_up*MQ..*_gs*MQ..&gclid=Cj0KCQjwmunNBhDbARIsAOndKpmoX7I4lFQPXELGJFLf87cjDB4CqfjAZ-Ck2P9TnX88CoUq4ochrbQaAvuTEALw_wcB&gbraid=0AAAAAoPeYTxEtrG7emFBISQsrUS44fGed', 126, 1, 7, 0, 30, 'Mythologie Nordique', 'Défis Nature - Mythes vikings vous emmène à la rencontre des personnages emblématiques de la mythologie vikings ! Au travers de cartes superbement illustrées, découvrez les légendes inconnues, puis pariez sur les points forts de vos personnages pour collecter toutes les cartes du jeu et remporter la partie. Alors, prêts à relever le défi ?', 'https://cdn1.philibertnet.com/823637-large_default/defis-nature-mythes-vikings.jpg', 'https://www.youtube.com/watch?v=vX7Bf3TpATM&list=TLGG2DX13JCqQ_kxODAzMjAyNA&t=1s'),
 (1632, 'Défis Nature - Sports d\'hiver', '', 2, 6, 'https://www.bioviva.com/fr/index.php?controller=attachment&id_attachment=308&_gl=1*3rsiuk*_up*MQ..*_gs*MQ..&gclid=Cj0KCQjwmunNBhDbARIsAOndKpmoX7I4lFQPXELGJFLf87cjDB4CqfjAZ-Ck2P9TnX88CoUq4ochrbQaAvuTEALw_wcB&gbraid=0AAAAAoPeYTxEtrG7emFBISQsrUS44fGed', 126, 1, 7, 0, 30, 'Sport d\'Hiver', 'Partez à la découverte des sports d’hiver les plus emblématiques du monde ! Enfilez vos moufles, puis pariez sur leurs points forts pour remporter la partie ! Alors, prêts à relever le défi ?', 'https://cdn2.philibertnet.com/823639-large_default/defis-nature-sports-d-hiver.jpg', 'https://www.youtube.com/watch?v=vX7Bf3TpATM&list=TLGG2DX13JCqQ_kxODAzMjAyNA&t=1s'),
-(1633, 'Heroes : Write & Conquer', 'Yuri Zhuravljov, Egor Nikolaev', 2, 4, 'https://hobbyworldint.com/wp-content/uploads/2024/12/Heroes-ENG-rules-215x279_web.pdf', 456, 3, 10, 0, 60, 'Fantastique, Médiéval', 'Heroes Write & Conquer est un jeu de stratégie et de développement. Planifiez vos actions, faites progresser votre faction et partez à la conquête de 27 régions. Recrutez vos unités, affrontez monstres et dangers, et prenez le contrôle du monde des Archons grâce à un ingénieux système de plateaux effaçables.', 'https://cdn2.philibertnet.com/836766-large_default/heroes-write-conquer.jpg', 'https://www.youtube.com/shorts/smjMTajFdIY'),
+(1633, 'Heroes : Write & Conquer', 'Yuri Zhuravljov, Egor Nikolaev', 2, 4, 'https://hobbyworldint.com/wp-content/uploads/2024/12/Heroes-ENG-rules-215x279_web.pdf', 456, 3, 10, 0, 60, 'Fantastique, Médiéval', 'Heroes Write & Conquer est un jeu de stratégie et de développement. Planifiez vos actions, faites progresser votre faction et partez à la conquête de 27 régions. Recrutez vos unités, affrontez monstres et dangers, et prenez le contrôle du monde des Archons grâce à un ingénieux système de plateaux effaçables.', 'https://cdn2.philibertnet.com/836766-large_default/heroes-write-conquer.jpg', 'https://youtu.be/Xcb6kMSF9Q0?is=i0-oz0HLpUduaIe9'),
 (1634, 'Petite Souris : La Grande Aventure', 'MNKY Entertainment', 1, 4, 'https://www.sortons-jouer.fr/wp-content/uploads/2026/03/Petite-Souris.pdf', 457, 4, 3, 0, 30, 'Animaux', 'Accompagnez Petite Souris dans son voyage et découvrez le monde !', 'https://cdn3.philibertnet.com/828626-large_default/petite-souris-la-grande-aventure.jpg', 'https://www.youtube.com/watch?v=hNZVzhPIFjc'),
 (1635, 'Little Match', 'Smahane Girardet, Véronique Bulteau', 2, 4, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=7174', 133, 4, 2, 0, 30, 'Animaux', 'Little Match de Djeco est un jeu de cartes de défausse. Avec une règle simple et des parties courtes ce petit jeu est adapté pour les tout-petits dès deux ans et demi.', 'https://cdn2.philibertnet.com/821036-large_default/little-match.jpg', 'https://www.youtube.com/watch?v=OPB-2p8nI6U'),
 (1636, 'Sugar Cake', 'Marine Faraguna', 2, 4, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=7066', 133, 4, 4, 0, 30, 'Nourriture', 'Beurre, œufs, farine… tout est prêt pour faire un bon gâteau ! Mais attention, des surprises peuvent venir tout gâcher ! Qui sera le meilleur pâtissier dans Sugar Cake ?', 'https://cdn2.philibertnet.com/803707-large_default/sugar-cake.jpg', 'https://www.youtube.com/watch?v=F5rIvxXK_28'),
@@ -3088,7 +3005,8 @@ INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJ
 (1716, 'Locus', 'Stan van Rooijen', 1, 5, 'https://www.tuckersfunfactory.nl/download/13706a4866c0f1fc494a56113435e810465190.pdf', 475, 1, 8, 0, 30, 'Abstrait', 'Dans Locus, les joueurs s\'affrontent pour obtenir le plus de points possible en remplissant leur feuille de score.', 'https://cdn3.philibertnet.com/829557-large_default/locus.jpg', 'https://www.youtube.com/watch?v=dq1VYMx2I00'),
 (1717, 'Miams', 'Jules Messaud', 1, 5, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=6943', 239, 1, 10, 0, 60, 'Alimentation', 'Miams est un jeu de dés survitaminé pour toute la famille dès 10 ans. Lancez vos dés, composez des combinaisons de fruits (paire, brelan, full, carré, suite ou miams), puis cochez les cases de votre feuille pour marquer des points et des bonus.', 'https://cdn2.philibertnet.com/770755-large_default/miams.jpg', 'https://www.youtube.com/watch?v=Xox0xYpegUI'),
 (1718, 'Dobble Lilo et Stitch', 'Denis Blanchot', 2, 8, 'https://images-fr-cdn.asmodee.com/eu-central-1/filer_public/92/3b/923b1bbc-0f39-466c-836f-9e33d911c291/dobb01fr_rules_lr.pdf', 320, 1, 8, 0, 30, 'Cinéma', 'Redécouvrez Doble, le célèbre jeu d\'observation et de rapidité, dans une version 100 % Lilo et Stitch ! Retrouvez les personnages et éléments les plus iconiques de l’univers.', 'https://cdn2.philibertnet.com/772178-large_default/dobble-stitch.jpg', 'https://www.tiktok.com/@asmodee_es/video/7420869890606664992'),
-(1719, 'Dobble', 'Denis Blanchot, Jacques Cottereau', 2, 8, 'https://images-fr-cdn.asmodee.com/eu-central-1/filer_public/92/3b/923b1bbc-0f39-466c-836f-9e33d911c291/dobb01fr_rules_lr.pdf', 320, 1, 8, 0, 30, 'Symboles', 'Dobble n\'est pas un seul jeu mais 5 mini-jeux basés sur la rapidité et l\'observation. Soyez le plus rapide et gardez votre sang-froid pour battre vos adversaires !', 'https://cdn1.philibertnet.com/494047-large_default/dobble.jpg', 'https://www.youtube.com/watch?v=Dnd-mZ92yr8'),
+(1719, 'Dobble', 'Denis Blanchot, Jacques Cottereau', 2, 8, 'https://images-fr-cdn.asmodee.com/eu-central-1/filer_public/92/3b/923b1bbc-0f39-466c-836f-9e33d911c291/dobb01fr_rules_lr.pdf', 320, 1, 8, 0, 30, 'Symboles', 'Dobble n\'est pas un seul jeu mais 5 mini-jeux basés sur la rapidité et l\'observation. Soyez le plus rapide et gardez votre sang-froid pour battre vos adversaires !', 'https://cdn1.philibertnet.com/494047-large_default/dobble.jpg', 'https://www.youtube.com/watch?v=Dnd-mZ92yr8');
+INSERT INTO `jeu` (`idJeu`, `libelleJeu`, `auteurJeu`, `nbMinJoueurJeu`, `nbMaxJoueurJeu`, `noticeJeu`, `idEditeur`, `idTypeJeu`, `agemini`, `prototype`, `duree`, `theme`, `description`, `imageJeu`, `videoRegle`) VALUES
 (1720, 'Denko', 'Dinis Contente, Matys Barthelemy, Alexandre Asri', 2, 6, '', 435, 1, 6, 0, 30, 'Asie', 'Denkō est un jeu d’ambiance frénétique et fun, où vous devrez vous débarrasser de vos cartes, en tapant la bonne pile au bon moment !', 'https://cdn1.philibertnet.com/829505-large_default/denko.jpg', ''),
 (1721, 'Brick Like This!', 'Luca Bellini', 2, 8, 'https://www.dottedgames.com/wp-content/uploads/Brick-Like-This-French-Rules.pdf', 476, 2, 7, 0, 30, 'Construction', 'Dans Brick Like This!, les joueurs s\'affrontent en équipes pour assembler des modèles LEGO le plus rapidement possible, un coéquipier décrivant le modèle à un autre coéquipier qui le construit.', 'https://cdn1.philibertnet.com/763343-large_default/brick-like-this.jpg', 'https://www.youtube.com/watch?v=YSG36F1nmi8'),
 (1722, 'Dixit Kids', 'Elodie Clément, Théo Riviere, Jean-Louis Roubira', 3, 6, 'https://www.philibertnet.com/fr/index.php?controller=attachment&id_attachment=7031', 477, 4, 6, 0, 30, 'Onirique', 'Avec Dixit Kids, retrouvez l\'univers de Dixit dans une version coopérative adaptée pour les enfants dès 6 ans et dans laquelle ils tentent d\'inviter le plus de lapins possible à un anniversaire.', 'https://cdn2.philibertnet.com/827465-large_default/dixit-kids.jpg', 'https://www.youtube.com/watch?v=VMG4LvVJnd0'),
@@ -5666,7 +5584,7 @@ INSERT INTO `reservation` (`idReservation`, `prixNegociationReservation`, `idFes
 (109, 90, 28, 127, 1, 0, 0, 0, 0, 0, '2019-01-14 00:00:00', 0),
 (110, 180, 28, 124, 2, 0, 0, 0, 0, 0, NULL, 0),
 (113, 270, 28, 153, 3, 0, 0, 0, 0, 0, '2019-01-17 00:00:00', 0),
-(114, 360, 28, 104, 4, 0, 0, 0, 0, 0, '2019-01-24 00:00:00', 0),
+(114, 500, 28, 104, 0, 5, 0, 0, 0, 0, '2019-01-24 00:00:00', 0),
 (115, 180, 28, 197, 2, 0, 0, 0, 0, 0, '2019-01-25 00:00:00', 0),
 (116, 180, 28, 136, 2, 0, 0, 0, 0, 0, '2019-01-28 00:00:00', 0),
 (117, 90, 28, 109, 1, 0, 0, 0, 0, 0, '2019-01-29 00:00:00', 0),
@@ -5699,7 +5617,6 @@ INSERT INTO `reservation` (`idReservation`, `prixNegociationReservation`, `idFes
 (146, 180, 29, 109, 2, 0, 0, 0, 0, 0, '2019-10-31 00:00:00', 0),
 (147, 360, 29, 118, 4, 0, 0, 0, 0, 0, '2019-10-31 00:00:00', 0),
 (148, 190, 29, 191, 0, 2, 0, 0, 0, 0, '2019-11-13 00:00:00', 0),
-(149, 500, 28, 104, 0, 5, 0, 0, 0, 0, '2019-11-13 00:00:00', 0),
 (150, 475, 29, 104, 0, 5, 0, 0, 0, 0, '2019-11-13 00:00:00', 0),
 (151, 285, 29, 208, 0, 3, 0, 0, 0, 0, '2019-11-14 00:00:00', 0),
 (152, 285, 29, 162, 0, 3, 0, 0, 0, 0, '2019-11-19 00:00:00', 0),
@@ -6045,9 +5962,9 @@ INSERT INTO `reservation` (`idReservation`, `prixNegociationReservation`, `idFes
 (538, 240, 36, 428, 2, 0, 0, 0, 0, 0, '2026-01-24 00:00:00', 0),
 (539, 320, 36, 298, 3, 0, 0, 0, 0, 0, '2026-01-29 00:00:00', 0),
 (540, 120, 36, 135, 0, 1, 0, 0, 0, 0, '2026-01-30 00:00:00', 0),
-(541, 120, 36, 430, 1, 0, 0, 0, 0, 0, '2026-02-09 00:00:00', 0),
+(541, 120, 36, 430, 2, 0, 0, 0, 0, 0, '2026-02-09 00:00:00', 0),
 (542, 240, 36, 431, 2, 0, 0, 0, 5, 0, '2026-02-14 00:00:00', 0),
-(543, 120, 36, 432, 1, 0, 0, 0, 0, 0, '2026-02-14 00:00:00', 0),
+(543, 0, 36, 432, 0, 0, 0, 0, 0, 0, '2026-02-14 00:00:00', 0),
 (544, 240, 36, 433, 0, 2, 0, 0, 0, 0, '2026-02-21 00:00:00', 0),
 (545, 840, 36, 386, 8, 0, 0, 0, 0, 0, '2026-02-21 00:00:00', 0),
 (546, 0, 36, 366, 8, 0, 0, 0, 0, 0, '2026-02-21 00:00:00', 0),
@@ -6634,7 +6551,6 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (432, 113, 28, 1, 0.5, 0, 1, 0, 0, 1, 1, 0, 71, '2019-02-14', 0, 0, 1),
 (433, 124, 28, 1, 0.5, 0, 1, 0, 0, 1, 1, 0, 88, '2019-02-21', 0, 0, 1),
 (433, 147, 29, 1, 1, 0, 1, 0, 0, 1, 1, 0, 110, '2020-02-24', 0, 0, 1),
-(433, 216, 30, 1, 1, 0, 1, 0, 0, 0, 0, 0, 133, '2021-03-09', 0, 0, 0),
 (434, 292, 32, 1, 1, 0, 1, 1, 0, 1, 1, 0, 213, '2023-03-17', 0, 0, 1),
 (434, 369, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 238, '2024-03-20', 0, 0, 1),
 (435, 132, 28, 3, 1.25, 0, 1, 0, 0, 1, 1, 0, 71, '2019-02-22', 0, 0, 1),
@@ -6837,7 +6753,8 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (618, 187, 29, 1, 0.5, 0, 1, 0, 0, 1, 1, 0, 123, '2020-02-21', 0, 0, 1),
 (620, 241, 31, 1, 1, 0, 1, 0, 0, 0, 0, 0, 157, '2022-03-12', 0, 0, 1),
 (621, 191, 29, 2, 1, 0, 1, 1, 0, 1, 1, 0, 124, '2020-02-23', 0, 0, 1),
-(622, 191, 29, 1, 0.5, 0, 1, 0, 0, 1, 1, 0, 123, '2020-02-23', 0, 0, 1),
+(622, 191, 29, 1, 0.5, 0, 1, 0, 0, 1, 1, 0, 123, '2020-02-23', 0, 0, 1);
+INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuReserver`, `nbtables`, `nbm2`, `besoinAnimJeu`, `dotationJeuReserver`, `tombolaJeuReserver`, `receptionJeuReserver`, `recuperationJeuReserver`, `renvoiJeuReserver`, `idZone`, `dateresjeux`, `retour`, `coutretour`, `placeJeu`) VALUES
 (623, 192, 29, 1, 1, 0, 1, 0, 0, 0, 0, 0, 128, '2020-02-23', 0, 0, 1),
 (624, 192, 29, 1, 1, 0, 1, 0, 0, 1, 1, 0, 128, '2020-02-23', 0, 0, 1),
 (625, 192, 29, 1, 0.5, 0, 1, 0, 0, 1, 1, 0, 128, '2020-02-23', 0, 0, 1),
@@ -7549,13 +7466,13 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (1213, 438, 35, 1, 1, 0, 0, 0, 0, 0, 0, 0, 300, '2025-02-05', 0, 0, 1),
 (1214, 394, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 243, '2024-03-12', 0, 0, 1),
 (1215, 380, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 246, '2024-03-12', 0, 0, 1),
-(1216, 380, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 246, '2024-03-12', 0, 0, 1),
+(1216, 380, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 246, '2024-03-12', 0, 0, 1);
+INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuReserver`, `nbtables`, `nbm2`, `besoinAnimJeu`, `dotationJeuReserver`, `tombolaJeuReserver`, `receptionJeuReserver`, `recuperationJeuReserver`, `renvoiJeuReserver`, `idZone`, `dateresjeux`, `retour`, `coutretour`, `placeJeu`) VALUES
 (1217, 380, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 246, '2024-03-12', 0, 0, 1),
 (1218, 380, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 246, '2024-03-12', 0, 0, 1),
 (1219, 402, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 260, '2024-03-12', 0, 0, 1),
 (1220, 402, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 260, '2024-03-12', 0, 0, 1),
-(1221, 402, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 260, '2024-03-12', 0, 0, 1);
-INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuReserver`, `nbtables`, `nbm2`, `besoinAnimJeu`, `dotationJeuReserver`, `tombolaJeuReserver`, `receptionJeuReserver`, `recuperationJeuReserver`, `renvoiJeuReserver`, `idZone`, `dateresjeux`, `retour`, `coutretour`, `placeJeu`) VALUES
+(1221, 402, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 260, '2024-03-12', 0, 0, 1),
 (1222, 403, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 275, '2024-03-12', 0, 0, 1),
 (1223, 403, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 275, '2024-03-12', 0, 0, 1),
 (1224, 403, 34, 1, 1, 0, 1, 0, 0, 1, 1, 0, 275, '2024-03-12', 0, 0, 1),
@@ -7700,7 +7617,7 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (1338, 436, 35, 2, 2, 0, 0, 0, 0, 0, 0, 0, 289, '2025-01-16', 0, 0, 1),
 (1339, 432, 35, 0, 0, 0, 1, 1, 0, 1, 1, 0, 331, '2025-03-22', 0, 0, 1),
 (1340, 433, 35, 1, 1, 0, 1, 0, 0, 1, 1, 0, 291, '2025-01-14', 0, 0, 1),
-(1340, 509, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 363, '2026-03-06', 0, 0, 1),
+(1340, 509, 36, 1, 1, 0, 0, 0, 0, 1, 1, 0, 363, '2026-03-06', 0, 0, 1),
 (1341, 433, 35, 1, 1, 0, 1, 1, 0, 1, 1, 0, 291, '2025-01-14', 0, 0, 1),
 (1342, 433, 35, 1, 1, 0, 1, 0, 0, 1, 1, 0, 297, '2025-01-14', 0, 0, 1),
 (1343, 437, 35, 1, 1, 0, 0, 0, 0, 0, 0, 0, 289, '2025-01-22', 0, 0, 1),
@@ -7945,7 +7862,7 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (1565, 530, 36, 2, 2, 0, 0, 0, 0, 0, 0, 0, 353, '2026-01-15', 0, 0, 1),
 (1566, 534, 36, 2, 2, 0, 1, 0, 0, 1, 1, 0, 378, '2026-01-18', 0, 0, 1),
 (1567, 509, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 361, '2026-03-25', 0, 0, 1),
-(1568, 509, 36, 1, 1, 0, 1, 0, 0, 0, 0, 0, 351, '2026-01-30', 0, 0, 1),
+(1568, 509, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 351, '2026-01-30', 0, 0, 1),
 (1568, 535, 36, 1, 2, 0, 0, 0, 0, 0, 0, 0, 351, '2026-01-22', 0, 0, 1),
 (1569, 506, 36, 1, 0.375, 0, 1, 0, 0, 1, 1, 0, 359, '2026-01-23', 0, 0, 1),
 (1571, 506, 36, 1, 0.375, 0, 1, 0, 0, 1, 1, 0, 359, '2026-01-23', 0, 0, 1),
@@ -7959,7 +7876,7 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (1580, 509, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 362, '2026-01-30', 0, 0, 1),
 (1582, 509, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 364, '2026-01-30', 0, 0, 1),
 (1583, 509, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 362, '2026-01-30', 0, 0, 1),
-(1584, 509, 36, 1, 1, 0, 1, 0, 0, 0, 0, 0, 351, '2026-03-26', 0, 0, 1),
+(1584, 509, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 351, '2026-03-26', 0, 0, 1),
 (1585, 509, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 361, '2026-01-30', 0, 0, 1),
 (1587, 509, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 351, '2026-01-30', 0, 0, 1),
 (1588, 538, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 374, '2026-02-03', 0, 0, 1),
@@ -7988,7 +7905,7 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (1613, 504, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 382, '2026-03-12', 0, 0, 1),
 (1614, 510, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 372, '2026-03-12', 0, 0, 1),
 (1615, 510, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 372, '2026-03-12', 0, 0, 1),
-(1616, 541, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 374, '2026-03-17', 0, 0, 1),
+(1616, 541, 36, 2, 2, 0, 0, 0, 0, 0, 0, 0, 374, '2026-04-06', 0, 0, 0),
 (1617, 525, 36, 3, 3, 0, 0, 0, 0, 0, 0, 0, 371, '2026-03-17', 0, 0, 1),
 (1618, 525, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 371, '2026-03-17', 0, 0, 1),
 (1619, 553, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 373, '2026-03-17', 0, 0, 1),
@@ -8095,7 +8012,7 @@ INSERT INTO `reserver` (`idJeu`, `idReservation`, `idFestival`, `quantiteJeuRese
 (1721, 517, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 342, '2026-03-25', 0, 0, 1),
 (1722, 517, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 343, '2026-03-25', 0, 0, 1),
 (1723, 517, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 343, '2026-03-25', 0, 0, 1),
-(1724, 561, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 344, '2026-03-25', 0, 0, 1),
+(1724, 561, 36, 1, 1, 0, 1, 0, 0, 1, 1, 0, 384, '2026-03-25', 0, 0, 1),
 (1725, 517, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 343, '2026-03-25', 0, 0, 1),
 (1726, 517, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 342, '2026-03-25', 0, 0, 1),
 (1727, 517, 36, 1, 1, 0, 0, 0, 0, 0, 0, 0, 343, '2026-03-25', 0, 0, 1),
@@ -8933,7 +8850,8 @@ INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `pre
 ('Pas présent à Cannes ! ', NULL, NULL, 0, 29, 142, 0, 4, 0, 0, 0, 0, 0),
 ('Tombola : 1 de chaque', NULL, NULL, 0, 29, 143, 0, 6, 1, 0, 0, 0, 0),
 ('', '2019-10-07', '2019-11-06', 0, 29, 144, 0, 1, 0, 0, 0, 0, 0),
-('Les jeux arriveront dans la caisse Asmodee -> comment les apprendre ?', '2019-11-04', NULL, 0, 29, 145, 0, 6, 1, 0, 0, 0, 0),
+('Les jeux arriveront dans la caisse Asmodee -> comment les apprendre ?', '2019-11-04', NULL, 0, 29, 145, 0, 6, 1, 0, 0, 0, 0);
+INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `presenceEditeur`, `idFestival`, `idEditeur`, `logementSuivi`, `reponseEditeur`, `placesurplan`, `besoinanim`, `CRenvoye`, `repas`, `repasVege`) VALUES
 ('4 jeux donnés au festival / 4 jeux à renvoyer\r\nTable 1 : Kraken attack + SOS dino\r\nTable 2 : Troll & dragon\r\nTable 3 : Flyin goblin\r\nTable 4 : Little town + break the code\r\nTable 5 : Little town + break the code\r\nTable 6 : codenames\r\nTable 7 : Ishtar\r\nTable8 : mini games -> highrisk  + ninja academy + 2 x schotten totten', '2019-07-29', NULL, 1, 29, 146, 0, 6, 1, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 29, 147, 0, 4, 0, 0, 0, 0, 0),
 ('Relancer par email plusierus fois - réponse mercredi ou jeudi 26-27/02', NULL, NULL, 0, 29, 148, 0, 4, 0, 0, 0, 0, 0),
@@ -9748,11 +9666,11 @@ INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `pre
 ('', NULL, NULL, 0, 31, 239, 0, 4, 0, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 31, 240, 0, 4, 0, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 31, 241, 0, 4, 0, 0, 0, 0, 0),
-('Demande de panneaux ou grille', '2022-02-25', '2022-03-17', 1, 31, 243, 0, 6, 1, 0, 1, 0, 0),
+('Demande de panneaux ou grille', '2022-02-25', '2022-03-17', 1, 31, 243, 0, 6, 1, 0, 1, 0, 0);
+INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `presenceEditeur`, `idFestival`, `idEditeur`, `logementSuivi`, `reponseEditeur`, `placesurplan`, `besoinanim`, `CRenvoye`, `repas`, `repasVege`) VALUES
 ('FIJ : ok sur le principe - jeu Kluster -  voir aussi avec Patrice : A Dig Way Out - mel envoyé', '2022-02-25', '2022-03-10', 0, 31, 244, 0, 6, 1, 0, 1, 0, 0),
 ('FIJ : contact par Christophe Lauras - éditeur des Christophe et Franz  - évènement ok pour eux -mel envoyé', '2022-02-26', NULL, 1, 31, 245, 0, 6, 1, 0, 1, 0, 0),
-('', '2022-03-18', NULL, 0, 31, 246, 0, 4, 0, 0, 0, 0, 0);
-INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `presenceEditeur`, `idFestival`, `idEditeur`, `logementSuivi`, `reponseEditeur`, `placesurplan`, `besoinanim`, `CRenvoye`, `repas`, `repasVege`) VALUES
+('', '2022-03-18', NULL, 0, 31, 246, 0, 4, 0, 0, 0, 0, 0),
 ('', '2022-03-08', NULL, 0, 31, 247, 0, 4, 0, 0, 0, 0, 0),
 ('', '2022-03-08', '2022-03-18', 0, 31, 248, 0, 4, 0, 0, 0, 0, 0),
 ('', '2022-03-08', '2022-03-18', 0, 31, 249, 0, 1, 0, 0, 0, 0, 0),
@@ -10476,7 +10394,8 @@ INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `pre
 ('', '2024-01-24', '2024-02-18', 0, 34, 245, 0, 4, 0, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 34, 246, 0, 4, 0, 0, 0, 0, 0),
 ('Mail non remis', '2023-11-26', NULL, 0, 34, 247, 0, 4, 0, 0, 0, 0, 0),
-('VH : demande de branchement électrique', '2024-01-24', '2024-02-18', 1, 34, 248, 0, 6, 1, 0, 0, 0, 0),
+('VH : demande de branchement électrique', '2024-01-24', '2024-02-18', 1, 34, 248, 0, 6, 1, 0, 0, 0, 0);
+INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `presenceEditeur`, `idFestival`, `idEditeur`, `logementSuivi`, `reponseEditeur`, `placesurplan`, `besoinanim`, `CRenvoye`, `repas`, `repasVege`) VALUES
 ('', NULL, NULL, 0, 34, 249, 0, 4, 0, 0, 0, 0, 0),
 ('VH : demande le même emplacement que l\'an dernier\r\nVH : demande de 2 grilles\r\n\r\n\r\n1) THE LAST DOGE (éditeur  >> Don\'t Panic Games)\r\n2) UNBOXED (éditeur  >> Don\'t Panic Games)\r\n3) DC: Streets of Gotham City (éditeur  >> Don\'t Panic Games)\r\n4) SACRIFICE 666 (éditeur  >> Don\'t Panic Games)\r\n5) MEDIUM (éditeur  >> Don\'t Panic Games)\r\n6) PENNY DREADFUL (éditeur  >> Don\'t Panic Games)\r\n7) BRIGANDS (éditeur >> ASPIC GAMES)\r\n8) DINOPICNIC  (éditeur >> BIOVIVA)\r\n9) DEFI NATURE : les 3 dernières sorties : \"Trop mignons\", \"Sports\" et \"Monde des coraux »\r\n', '2023-11-23', NULL, 1, 34, 250, 0, 6, 1, 0, 0, 6, 0),
 ('VH : je mets 3 repas, au pif', '2023-11-24', NULL, 1, 34, 251, 0, 6, 1, 0, 0, 3, 0),
@@ -11073,15 +10992,15 @@ INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `pre
 ('', NULL, NULL, 0, 36, 114, 0, 1, 0, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 36, 115, 0, 1, 0, 0, 0, 0, 0),
 ('Jeu : Osmosis - Autrice présent à partir du samedi après-midi\r\n\r\nDotation tombola : 1 Osmosis, 1 Dame Nature et 1 Pollen pour la tombola.', '2025-12-01', NULL, 0, 36, 116, 1, 6, 1, 1, 0, 0, 0),
-('', '2025-12-01', NULL, 0, 36, 117, 0, 7, 0, 0, 0, 0, 0),
+('', '2025-12-01', NULL, 0, 36, 117, 0, 7, 0, 0, 0, 0, 0);
+INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `presenceEditeur`, `idFestival`, `idEditeur`, `logementSuivi`, `reponseEditeur`, `placesurplan`, `besoinanim`, `CRenvoye`, `repas`, `repasVege`) VALUES
 ('Mail Céline 17/03 : Subverti - Ok pour 1 table animée par les bénévoles et payée par BRG. \r\nVH (20/03/2026) : rajout table 21 pour Disto : à facturer. => payée le 30 mars\r\n\r\n\r\nSI Olemains reste au 2eme alors bouger la table blackrock pour Olemain au 2ème aussi\r\nLa prévenir du planning des soirées découvertes pour envoyer les jeux\r\n\r\nNuméro de table - Jeu - Editeur\r\n\r\nT1 - Soupçon - Spielwiese -> grde table\r\nT2 - Bloom - Game Factory\r\nT3 - Tag Team + Ile des Mookies Scorpion Masqué\r\nT4 - Insurrection - Boite de jeu -> grde table\r\nT5 - Trait Cool - Bankiiiz Editions -> grde table\r\nT6 - Chouineurs - Blam !\r\nT7 - Viva Catrina - The Flying Games -> grde table\r\nT8 - Présages - Spiral Editions -> grde table\r\nT9 - Mimetix - Espadon Insouciant -> remplacer table par mange-debout\r\nT10 - Avant-Après - OldChap Games\r\nT11 - Sweeet - table à 5- Grrre Games\r\nT12 - Arigato - Ludonaute\r\nT13 - Flip 7 -> table à 5\r\nT14 - Epic Melee - Sorry We Are French\r\nT15 - Charuma + Heredity - Darucat\r\nT16 - Visions ', '2025-12-01', NULL, 1, 36, 118, 1, 6, 1, 1, 0, 0, 0),
 ('', NULL, NULL, 0, 36, 119, 0, 1, 0, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 36, 122, 0, 1, 0, 0, 0, 0, 0),
 ('', '2025-12-01', NULL, 0, 36, 123, 0, 7, 0, 0, 0, 0, 0),
 ('', '2025-12-01', NULL, 0, 36, 124, 0, 7, 0, 0, 0, 0, 0),
 ('', NULL, NULL, 0, 36, 125, 0, 1, 0, 0, 0, 0, 0),
-('Jeux : \r\n4 tables Oh Mon Dieu (2egypte + 2 Olympe)\r\n4 Tables Kondor\r\n1 Table DN\r\n1 Table Seazone\r\n', '2025-12-01', NULL, 1, 36, 126, 1, 6, 1, 0, 0, 0, 0);
-INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `presenceEditeur`, `idFestival`, `idEditeur`, `logementSuivi`, `reponseEditeur`, `placesurplan`, `besoinanim`, `CRenvoye`, `repas`, `repasVege`) VALUES
+('Jeux : \r\n4 tables Oh Mon Dieu (2egypte + 2 Olympe)\r\n4 Tables Kondor\r\n1 Table DN\r\n1 Table Seazone\r\n', '2025-12-01', NULL, 1, 36, 126, 1, 6, 1, 0, 0, 0, 0),
 ('Puzzle Adventure : Petits Détectives\r\n2ème étage initialement prévu mais comme une table était libre et que c\'est un jeu pour enfant, je l\'ai remonté au 3ème - prix payé, celui du 2ème\r\n\r\nVH : jeux envoyés par Blackrock', '2025-12-01', NULL, 0, 36, 127, 1, 6, 1, 1, 0, 0, 0),
 ('VH : \"mettre a la même place que les autres années\"\r\n', '2025-12-01', NULL, 1, 36, 128, 1, 6, 1, 0, 0, 1, 0),
 ('', '2025-12-03', NULL, 0, 36, 129, 0, 7, 0, 0, 0, 0, 0),
@@ -11370,7 +11289,7 @@ INSERT INTO `suivi` (`commentaireSuivi`, `premierContact`, `secondContact`, `pre
 ('', NULL, NULL, 0, 36, 429, 0, 7, 0, 0, 0, 0, 0),
 ('Jeu :  Cosmo Builder', NULL, NULL, 1, 36, 430, 1, 6, 1, 0, 0, 0, 0),
 ('Jeu : Save Us All \r\nhttps://gamefound.com/fr/projects/saveusall/saveusall', '2026-03-26', NULL, 1, 36, 431, 1, 6, 1, 0, 0, 0, 0),
-('VH : repas\r\nVH : demande de grille', NULL, NULL, 1, 36, 432, 1, 6, 1, 0, 0, 1, 0),
+('VH : repas\r\nVH : demande de grille', NULL, NULL, 1, 36, 432, 1, 1, 1, 0, 0, 1, 0),
 ('Jeu : Haiku - Fantom raiders rush  \r\n\r\nIllustrateur : Jérémie Caplane\r\nÀ mettre à côté des tables de Ludenbois => voir si c\'est possible', NULL, NULL, 1, 36, 433, 1, 6, 1, 0, 0, 0, 0),
 ('VH : pas de repas\r\n\r\nVH : factures :\r\n* une pour 2 tables, pour Sweet Games\r\n* une pour 2 tables pour moi même (ou la brigade, je check avec Joan dès que possible) pour l\'éditeur Hydrea Edition.\r\n\r\nVH : passage de 4 à 0 tables car annulation Ben\'s Meeple et Ludenbois résere par ailleurs, ainsi que Sweet.', NULL, NULL, 1, 36, 434, 1, 1, 0, 0, 0, 0, 0),
 ('Ancien jeux de la zone proto de l\'année dernière => remise de 20€ (proto de l’année dernière repéré par un membre du jury et édité. Petit cadeau pour fêter un jeu découvert à Montpellier)\r\nBoutique des curiosités - m2 pour la boutique de curiosité -> ne pas mettre sur la facture', NULL, NULL, 1, 36, 435, 1, 6, 1, 0, 0, 0, 0),
@@ -11769,7 +11688,8 @@ INSERT INTO `zone` (`idZone`, `nomZone`, `idFestival`) VALUES
 -- Index pour la table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`idContact`);
+  ADD PRIMARY KEY (`idContact`),
+  ADD KEY `fk_contact_editeur` (`idEditeur`);
 
 --
 -- Index pour la table `editeur`
@@ -11781,7 +11701,8 @@ ALTER TABLE `editeur`
 -- Index pour la table `facture`
 --
 ALTER TABLE `facture`
-  ADD PRIMARY KEY (`idFacture`);
+  ADD PRIMARY KEY (`idFacture`),
+  ADD KEY `fk_facture_reservation` (`idReservation`);
 
 --
 -- Index pour la table `festival`
@@ -11800,8 +11721,7 @@ ALTER TABLE `jeu`
 --
 ALTER TABLE `jeu_mecanism`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_jeu_jeu_mecanism` (`idJeu`),
-  ADD KEY `fk_meca_jeu_mecanism` (`idMecanism`) USING BTREE;
+  ADD KEY `idxJeu` (`idJeu`);
 
 --
 -- Index pour la table `mecanism`
@@ -11820,20 +11740,24 @@ ALTER TABLE `organisateur`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`idReservation`),
+  ADD UNIQUE KEY `festivalEditeur` (`idFestival`,`idEditeur`),
   ADD KEY `fk_reservation_editeur` (`idEditeur`);
 
 --
 -- Index pour la table `reserver`
 --
 ALTER TABLE `reserver`
-  ADD PRIMARY KEY (`idJeu`,`idReservation`,`idZone`) USING BTREE;
+  ADD PRIMARY KEY (`idJeu`,`idReservation`,`idZone`) USING BTREE,
+  ADD KEY `fk_reserver_reservation` (`idReservation`),
+  ADD KEY `fk_reserver_zone` (`idZone`),
+  ADD KEY `idxFestival` (`idFestival`);
 
 --
 -- Index pour la table `suivi`
 --
 ALTER TABLE `suivi`
   ADD PRIMARY KEY (`idFestival`,`idEditeur`),
-  ADD KEY `fk_editeur` (`idEditeur`);
+  ADD KEY `fk_suivi_editeur` (`idEditeur`);
 
 --
 -- Index pour la table `typeJeu`
@@ -11918,6 +11842,50 @@ ALTER TABLE `typeJeu`
 --
 ALTER TABLE `zone`
   MODIFY `idZone` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD CONSTRAINT `fk_contact_editeur` FOREIGN KEY (`idEditeur`) REFERENCES `editeur` (`idEditeur`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Contraintes pour la table `facture`
+--
+ALTER TABLE `facture`
+  ADD CONSTRAINT `fk_facture_reservation` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`idReservation`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Contraintes pour la table `jeu_mecanism`
+--
+ALTER TABLE `jeu_mecanism`
+  ADD CONSTRAINT `fk_jeumecanism_jeu` FOREIGN KEY (`idJeu`) REFERENCES `jeu` (`idJeu`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Contraintes pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `fk_reservation_editeur` FOREIGN KEY (`idEditeur`) REFERENCES `editeur` (`idEditeur`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_reservation_festival` FOREIGN KEY (`idFestival`) REFERENCES `festival` (`idFestival`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Contraintes pour la table `reserver`
+--
+ALTER TABLE `reserver`
+  ADD CONSTRAINT `fk_reserver_jeu` FOREIGN KEY (`idJeu`) REFERENCES `jeu` (`idJeu`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_reserver_reservation` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`idReservation`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_reserver_zone` FOREIGN KEY (`idZone`) REFERENCES `zone` (`idZone`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Contraintes pour la table `suivi`
+--
+ALTER TABLE `suivi`
+  ADD CONSTRAINT `fk_suivi_editeur` FOREIGN KEY (`idEditeur`) REFERENCES `editeur` (`idEditeur`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_suivi_festival` FOREIGN KEY (`idFestival`) REFERENCES `festival` (`idFestival`) ON DELETE CASCADE ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
