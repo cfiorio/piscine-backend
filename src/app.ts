@@ -9,6 +9,7 @@ import { env } from './config/env';
 
 const app = express();
 
+// Helmet en premier : ses headers s'appliquent à toutes les réponses, y compris CORS preflight
 app.use(helmet());
 
 app.use(
@@ -18,7 +19,8 @@ app.use(
   }),
 );
 
-app.use(express.json());
+// Limite à 16kb pour éviter les attaques DoS par body surdimensionné
+app.use(express.json({ limit: '16kb' }));
 app.use(cookieParser());
 
 // Rate limiting sur les routes d'authentification

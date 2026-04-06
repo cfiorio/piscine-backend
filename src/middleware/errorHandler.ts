@@ -19,6 +19,11 @@ export function errorHandler(
     return;
   }
 
+  if (err instanceof Error && err.message === 'INVALID_REFRESH_TOKEN') {
+    res.status(401).json({ error: 'Session expirée, veuillez vous reconnecter' });
+    return;
+  }
+
   logger.error(err);
 
   res.status(500).json({
