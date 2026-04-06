@@ -4,7 +4,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import authRoutes from './routes/auth';
-import festivalRoutes from './routes/festival';
+import festivalRoutes from './routes/festival'
+import jeuRoutes from './routes/jeu';
 import { errorHandler } from './middleware/errorHandler';
 import { env } from './config/env';
 
@@ -29,17 +30,27 @@ app.use(
 app.use(express.json({ limit: '16kb' }));
 app.use(cookieParser());
 
-// Rate limiting sur les routes d'authentification
+// Rate limiting sur les routes d'authentification (strict : 20 req / 15 min)
 const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // fenêtre de 15 minutes
+  windowMs: 15 * 60 * 1000,
   max: 20,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Trop de tentatives, réessayez dans 15 minutes' },
 });
 
+// Rate limiting sur les routes de données (modéré : 300 req / 15 min par IP)
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Trop de requêtes, réessayez dans 15 minutes' },
+});
+
 app.use('/api/auth', authLimiter, authRoutes);
-app.use('/api/festivals', festivalRoutes);
+app.use('/api/festivals', apiLimiter, festivalRoutes)
+app.use('/api/jeux', apiLimiter, jeuRoutes);
 
 app.use(errorHandler);
 

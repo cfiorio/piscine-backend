@@ -29,6 +29,11 @@ export function errorHandler(
     return;
   }
 
+  if (err instanceof Error && err.message === 'JEU_NOT_FOUND') {
+    res.status(404).json({ error: 'Jeu introuvable' });
+    return;
+  }
+
   logger.error(err);
 
   res.status(500).json({
