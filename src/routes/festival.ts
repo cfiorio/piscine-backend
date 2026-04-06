@@ -9,7 +9,9 @@ const router = Router()
 router.get('/latest', festivalController.getLatest)
 
 // Routes admin uniquement
+router.get('/stats', authenticate, authorizeAdmin, festivalController.getAllWithStats)
 router.get('/', authenticate, authorizeAdmin, festivalController.getAll)
+router.get('/:id/stats', authenticate, authorizeAdmin, festivalController.getByIdWithStats)
 router.get('/:id', authenticate, authorizeAdmin, festivalController.getById)
 router.post('/', authenticate, authorizeAdmin, festivalController.create)
 router.put('/:id', authenticate, authorizeAdmin, festivalController.update)

@@ -11,6 +11,15 @@ export async function getAll(req: Request, res: Response, next: NextFunction): P
   }
 }
 
+export async function getAllWithStats(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const festivals = await festivalService.getAllWithStats()
+    res.status(200).json(festivals)
+  } catch (err) {
+    next(err)
+  }
+}
+
 export async function getById(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const id = parseInt(req.params.id, 10)
@@ -19,6 +28,20 @@ export async function getById(req: Request, res: Response, next: NextFunction): 
       return
     }
     const festival = await festivalService.getById(id)
+    res.status(200).json(festival)
+  } catch (err) {
+    next(err)
+  }
+}
+
+export async function getByIdWithStats(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const id = parseInt(req.params.id, 10)
+    if (isNaN(id)) {
+      res.status(400).json({ error: 'Identifiant invalide' })
+      return
+    }
+    const festival = await festivalService.getByIdWithStats(id)
     res.status(200).json(festival)
   } catch (err) {
     next(err)

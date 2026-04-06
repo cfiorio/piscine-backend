@@ -93,3 +93,53 @@ export async function remove(id: number): Promise<boolean> {
   )
   return result.affectedRows > 0
 }
+
+
+// --- Additional functions to get festival with reservation stats --- 
+
+export interface FestivalWithStats extends Festival {
+  totalNbEmplacement: number
+  totalNbEmplPremium: number
+  totalNbEmplPromo: number
+  totalNbm2: number
+  totalNbm2Premium: number
+  totalNbm2Promo: number
+}
+
+export async function findAllWithStats(): Promise<FestivalWithStats[]> {
+  const [rows] = await pool.execute<RowDataPacket[]>(
+    `SELECT
+      f.*,
+      COALESCE(SUM(r.nbEmplacement), 0)  AS totalNbEmplacement,
+      COALESCE(SUM(r.nbEmplPremium), 0)  AS totalNbEmplPremium,
+      COALESCE(SUM(r.nbEmplPromo), 0)    AS totalNbEmplPromo,
+      COALESCE(SUM(r.nbm2), 0)           AS totalNbm2,
+      COALESCE(SUM(r.nbm2Premium), 0)    AS totalNbm2Premium,
+      COALESCE(SUM(r.nbm2Promo), 0)      AS totalNbm2Promo
+    FROM festival f
+    LEFT JOIN reservation r ON r.idFestival = f.idFestival
+    GROUP BY f.idFestival
+    ORDER BY f.idFestival DESC`,
+  )
+  return rows as FestivalWithStats[]
+}
+
+export async function findByIdWithStats(id: number): Promise<FestivalWithStats | null> {
+  const [rows] = await pool.execute<RowDataPacket[]>(
+    `SELECT
+      f.*,
+      COALESCE(SUM(r.nbEmplacement), 0)  AS totalNbEmplacement,
+      COALESCE(SUM(r.nbEmplPremium), 0)  AS totalNbEmplPremium,
+      COALESCE(SUM(r.nbEmplPromo), 0)    AS totalNbEmplPromo,
+      COALESCE(SUM(r.nbm2), 0)           AS totalNbm2,
+      COALESCE(SUM(r.nbm2Premium), 0)    AS totalNbm2Premium,
+      COALESCE(SUM(r.nbm2Promo), 0)      AS totalNbm2Promo
+    FROM festival f
+    LEFT JOIN reservation r ON r.idFestival = f.idFestival
+    WHERE f.idFestival = ?
+    GROUP BY f.idFestival`,
+    [id],
+  )
+  return rows.length > 0 ? (rows[0] as FestivalWithStats) : null
+}
+

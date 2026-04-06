@@ -1,13 +1,23 @@
 import * as repo from '../repository/festivalRepository'
-import type { Festival } from '../repository/festivalRepository'
+import type { Festival, FestivalWithStats } from '../repository/festivalRepository'
 import type { FestivalCreateInput, FestivalUpdateInput } from '../schemas/festival.schema'
 
 export async function getAll(): Promise<Festival[]> {
   return repo.findAll()
 }
 
+export async function getAllWithStats(): Promise<FestivalWithStats[]> {
+  return repo.findAllWithStats()
+}
+
 export async function getById(id: number): Promise<Festival> {
   const festival = await repo.findById(id)
+  if (!festival) throw new Error('FESTIVAL_NOT_FOUND')
+  return festival
+}
+
+export async function getByIdWithStats(id: number): Promise<FestivalWithStats> {
+  const festival = await repo.findByIdWithStats(id)
   if (!festival) throw new Error('FESTIVAL_NOT_FOUND')
   return festival
 }
