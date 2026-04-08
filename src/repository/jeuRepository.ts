@@ -203,6 +203,9 @@ export interface JeuFestival extends Jeu {
   zones: string
   nbJeux: number
   nbTables: number
+  placeJeu: boolean
+  besoinAnimJeu: boolean
+  receptionJeuReserver: boolean
 }
 
 export async function findAllByFestivalWithDetails(festivalId: number): Promise<JeuFestival[]> {
@@ -220,7 +223,10 @@ export async function findAllByFestivalWithDetails(festivalId: number): Promise<
       COALESCE(GROUP_CONCAT(DISTINCT m.mecaName ORDER BY m.mecaName SEPARATOR ';'), '') AS mecanismes,
       COALESCE(GROUP_CONCAT(DISTINCT z.nomZone ORDER BY z.nomZone SEPARATOR ';'), '') AS zones,
       r_agg.nbJeux,
-      r_agg.nbTables
+      r_agg.nbTables,
+      MAX(r.placeJeu) AS placeJeu,
+      MAX(r.besoinAnimJeu) AS besoinAnimJeu,
+      MAX(r.receptionJeuReserver) AS receptionJeuReserver
     FROM (
       SELECT idJeu,
              SUM(quantiteJeuReserver) AS nbJeux,
