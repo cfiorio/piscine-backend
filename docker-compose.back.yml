@@ -1,0 +1,19 @@
+services:
+  piscine_back:
+    image: ghcr.io/cfiorio/piscine-backend:latest
+    container_name: piscine_back
+    restart: unless-stopped
+    env_file: /srv/piscine-back/.env
+    networks: [piscinephp_net]
+    depends_on:
+      piscine_mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+networks:
+  piscinephp_net:
+    external: true

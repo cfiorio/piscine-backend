@@ -3,10 +3,6 @@ name: CI/CD — Backend
 on:
   push:
     branches: [main]
-    paths:
-      - 'piscine-back/**'
-      - 'piscine-infra/docker-compose.back.yml'
-      - '.github/workflows/back-ci.yml'
 
 env:
   REGISTRY: ghcr.io
@@ -17,9 +13,6 @@ jobs:
   typecheck:
     name: Typecheck
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: piscine-back
     steps:
       - uses: actions/checkout@v4
 
@@ -27,7 +20,7 @@ jobs:
         with:
           node-version: lts/*
           cache: npm
-          cache-dependency-path: piscine-back/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - run: npm ci
       - run: npm run typecheck
@@ -63,7 +56,7 @@ jobs:
       - name: Build et push
         uses: docker/build-push-action@v6
         with:
-          context: ./piscine-back
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -86,9 +79,8 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: piscine-infra/docker-compose.back.yml
+          source: docker-compose.back.yml
           target: /srv/piscine-back/
-          strip_components: 1
 
       - name: Déployer le backend
         uses: appleboy/ssh-action@v1.0.3
