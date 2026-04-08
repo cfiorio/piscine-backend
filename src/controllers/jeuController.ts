@@ -50,6 +50,15 @@ export async function update(req: Request, res: Response, next: NextFunction): P
   }
 }
 
+export async function getEditeursByLatestFestival(_req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const editeurs = await jeuService.getEditeursByLatestFestival()
+    res.status(200).json(editeurs)
+  } catch (err) {
+    next(err)
+  }
+}
+
 export async function getAllByLatestFestivalWithDetails(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const jeux = await jeuService.getAllByLatestFestivalWithDetails()
