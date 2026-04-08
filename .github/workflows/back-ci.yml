@@ -1,0 +1,110 @@
+name: CI/CD — Backend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'piscine-back/**'
+      - 'piscine-infra/docker-compose.back.yml'
+      - '.github/workflows/back-ci.yml'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: cfiorio/piscine-backend
+
+jobs:
+  # ─── Vérification du code ─────────────────────────────────────────────────
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: piscine-back
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: piscine-back/package-lock.json
+
+      - run: npm ci
+      - run: npm run typecheck
+
+  # ─── Build & Push vers GHCR ──────────────────────────────────────────────
+  build-push:
+    name: Build & Push
+    needs: typecheck
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Métadonnées de l'image
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=sha-
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build et push
+        uses: docker/build-push-action@v6
+        with:
+          context: ./piscine-back
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          # Cache layers entre les runs pour accélérer les builds
+          cache-from: type=registry,ref=ghcr.io/${{ env.IMAGE_NAME }}:latest
+          cache-to: type=inline
+
+  # ─── Déploiement sur le VPS ───────────────────────────────────────────────
+  deploy:
+    name: Deploy VPS
+    needs: build-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copier le compose sur le VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: piscine-infra/docker-compose.back.yml
+          target: /srv/piscine-back/
+          strip_components: 1
+
+      - name: Déployer le backend
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            # Authentification GHCR avec le PAT (image privée)
+            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u cfiorio --password-stdin
+
+            cd /srv/piscine-back
+
+            # Pull de la nouvelle image puis redémarrage à chaud
+            docker compose -f docker-compose.back.yml pull
+            docker compose -f docker-compose.back.yml up -d
+
+            # Nettoyage des anciennes images
+            docker image prune -f
