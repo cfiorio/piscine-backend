@@ -48,6 +48,8 @@ const apiLimiter = rateLimit({
   message: { error: 'Trop de requêtes, réessayez dans 15 minutes' },
 });
 
+app.get('/health', (_req, res) => { res.status(200).send('ok') })
+
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/festivals', apiLimiter, festivalRoutes)
 app.use('/api/jeux', apiLimiter, jeuRoutes);
