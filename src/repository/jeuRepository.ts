@@ -161,10 +161,10 @@ export interface EditeurFestival {
 }
 
 
-export async function findEditeursByLatestFestival(): Promise<EditeurFestival[]> {
+export async function findEditeursByFestival(festivalId: number): Promise<EditeurFestival[]> {
   const [rows] = await pool.execute<RowDataPacket[]>(
-    // Part de reserver filtré sur le festival courant — seules les lignes pertinentes
-    // sont chargées. La PK (idJeu, idReservation, idZone) implique une ligne par zone :
+    // Part de reserver filtré sur le festival — seules les lignes pertinentes sont chargées.
+    // La PK (idJeu, idReservation, idZone) implique une ligne par zone :
     // on déduplique par (idJeu, idReservation) avant de sommer qté et tables.
     `SELECT
       e.idEditeur,
@@ -179,15 +179,21 @@ export async function findEditeursByLatestFestival(): Promise<EditeurFestival[]>
              MIN(nbtables) AS nbtables,
              MAX(dateresjeux) AS dateresjeux
       FROM reserver
-      WHERE idFestival = (SELECT MAX(idFestival) FROM festival)
+      WHERE idFestival = ?
       GROUP BY idJeu, idReservation
     ) r_dedup
     INNER JOIN jeu j ON j.idJeu = r_dedup.idJeu
     INNER JOIN editeur e ON e.idEditeur = j.idEditeur
     GROUP BY e.idEditeur, e.libelleEditeur
     ORDER BY e.libelleEditeur ASC`,
+    [festivalId],
   )
   return rows as EditeurFestival[]
+}
+
+export async function findEditeursByLatestFestival(): Promise<EditeurFestival[]> {
+  const [[row]] = await pool.execute<RowDataPacket[]>('SELECT MAX(idFestival) AS id FROM festival')
+  return findEditeursByFestival(row['id'] as number)
 }
 
 // --- Jeux du festival en cours avec mécanismes et zones ---
@@ -199,9 +205,9 @@ export interface JeuFestival extends Jeu {
   nbTables: number
 }
 
-export async function findAllByLatestFestivalWithDetails(): Promise<JeuFestival[]> {
+export async function findAllByFestivalWithDetails(festivalId: number): Promise<JeuFestival[]> {
   const [rows] = await pool.execute<RowDataPacket[]>(
-    // Part de reserver filtré sur le festival courant.
+    // Part de reserver filtré sur le festival.
     // Niveau 1 (r_dedup) : déduplique par (idJeu, idReservation) — élimine la duplication
     //   due à la PK (idJeu, idReservation, idZone) avant de sommer qté et tables.
     // Niveau 2 (r_agg) : agrège par idJeu pour obtenir les totaux définitifs.
@@ -224,7 +230,7 @@ export async function findAllByLatestFestivalWithDetails(): Promise<JeuFestival[
                MIN(quantiteJeuReserver) AS quantiteJeuReserver,
                MIN(nbtables) AS nbtables
         FROM reserver
-        WHERE idFestival = (SELECT MAX(idFestival) FROM festival)
+        WHERE idFestival = ?
         GROUP BY idJeu, idReservation
       ) r_dedup
       GROUP BY idJeu
@@ -232,54 +238,18 @@ export async function findAllByLatestFestivalWithDetails(): Promise<JeuFestival[
     INNER JOIN jeu j ON j.idJeu = r_agg.idJeu
     LEFT JOIN editeur e ON e.idEditeur = j.idEditeur
     LEFT JOIN typeJeu t ON t.idTypeJeu = j.idTypeJeu
-    INNER JOIN reserver r ON r.idJeu = j.idJeu
-      AND r.idFestival = (SELECT MAX(idFestival) FROM festival)
+    INNER JOIN reserver r ON r.idJeu = j.idJeu AND r.idFestival = ?
     INNER JOIN zone z ON z.idZone = r.idZone
     LEFT JOIN jeu_mecanism jm ON jm.idJeu = j.idJeu
     LEFT JOIN mecanism m ON m.idMecanism = jm.idMecanism
     GROUP BY j.idJeu, r_agg.nbJeux, r_agg.nbTables
     ORDER BY j.libelleJeu ASC`,
+    [festivalId, festivalId],
   )
   return rows as JeuFestival[]
 }
 
-export async function findAllByLatestFestivalWithDetailsBackup(): Promise<JeuFestival[]> {
-  const [rows] = await pool.execute<RowDataPacket[]>(
-    // La table reserver a une PK (idJeu, idReservation, idZone).
-    // Les joins avec zone ET mecanism multiplient les lignes — on pré-agrège reserver
-    // par idJeu pour obtenir des totaux corrects avant les autres joins.
-    `SELECT
-      j.*,
-      e.libelleEditeur,
-      t.libelleTypeJeu,
-      COALESCE(GROUP_CONCAT(DISTINCT m.mecaName ORDER BY m.mecaName SEPARATOR ';'), '') AS mecanismes,
-      COALESCE(GROUP_CONCAT(DISTINCT z.nomZone ORDER BY z.nomZone SEPARATOR ';'), '') AS zones,
-      r_agg.nbJeux,
-      r_agg.nbTables
-    FROM jeu j
-    LEFT JOIN editeur e ON e.idEditeur = j.idEditeur
-    LEFT JOIN typeJeu t ON t.idTypeJeu = j.idTypeJeu
-    INNER JOIN (
-      SELECT idJeu,
-             SUM(quantiteJeuReserver) AS nbJeux,
-             SUM(nbtables) AS nbTables
-      FROM (
-        SELECT idJeu, idReservation,
-               MIN(quantiteJeuReserver) AS quantiteJeuReserver,
-               MIN(nbtables) AS nbtables
-        FROM reserver
-        WHERE idFestival = (SELECT MAX(idFestival) FROM festival)
-        GROUP BY idJeu, idReservation
-      ) r_dedup
-      GROUP BY idJeu
-    ) r_agg ON r_agg.idJeu = j.idJeu
-    INNER JOIN reserver r ON r.idJeu = j.idJeu
-      AND r.idFestival = (SELECT MAX(idFestival) FROM festival)
-    INNER JOIN zone z ON z.idZone = r.idZone
-    LEFT JOIN jeu_mecanism jm ON jm.idJeu = j.idJeu
-    LEFT JOIN mecanism m ON m.idMecanism = jm.idMecanism
-    GROUP BY j.idJeu, r_agg.nbJeux, r_agg.nbTables
-    ORDER BY j.libelleJeu ASC`,
-  )
-  return rows as JeuFestival[]
+export async function findAllByLatestFestivalWithDetails(): Promise<JeuFestival[]> {
+  const [[row]] = await pool.execute<RowDataPacket[]>('SELECT MAX(idFestival) AS id FROM festival')
+  return findAllByFestivalWithDetails(row['id'] as number)
 }

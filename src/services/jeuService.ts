@@ -1,5 +1,6 @@
 import * as repo from '../repository/jeuRepository'
 import type { Jeu, JeuWithMecanismes, JeuFestival, EditeurFestival } from '../repository/jeuRepository'
+export type { JeuFestival, EditeurFestival }
 import type { JeuCreateInput, JeuUpdateInput } from '../schemas/jeu.schema'
 
 export async function getAll(): Promise<Jeu[]> {
@@ -39,8 +40,16 @@ export async function getByIdWithMecanismes(id: number): Promise<JeuWithMecanism
   return jeu
 }
 
+export async function getAllByFestivalWithDetails(festivalId: number): Promise<JeuFestival[]> {
+  return repo.findAllByFestivalWithDetails(festivalId)
+}
+
 export async function getAllByLatestFestivalWithDetails(): Promise<JeuFestival[]> {
   return repo.findAllByLatestFestivalWithDetails()
+}
+
+export async function getEditeursByFestival(festivalId: number): Promise<EditeurFestival[]> {
+  return repo.findEditeursByFestival(festivalId)
 }
 
 export async function getEditeursByLatestFestival(): Promise<EditeurFestival[]> {

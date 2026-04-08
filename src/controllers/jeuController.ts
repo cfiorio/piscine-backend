@@ -2,7 +2,7 @@ import type { Request, Response, NextFunction } from 'express'
 import { jeuCreateSchema, jeuUpdateSchema } from '../schemas/jeu.schema'
 import * as jeuService from '../services/jeuService'
 
-export async function getAll(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function getAll(_req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const jeux = await jeuService.getAll()
     res.status(200).json(jeux)
@@ -50,6 +50,37 @@ export async function update(req: Request, res: Response, next: NextFunction): P
   }
 }
 
+export async function getAllByFestivalWithDetails(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const festivalId = parseInt(req.params.festivalId, 10)
+    if (isNaN(festivalId)) { res.status(400).json({ error: 'Identifiant de festival invalide' }); return }
+    const jeux = await jeuService.getAllByFestivalWithDetails(festivalId)
+    res.status(200).json(jeux)
+  } catch (err) {
+    next(err)
+  }
+}
+
+export async function getAllByLatestFestivalWithDetails(_req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const jeux = await jeuService.getAllByLatestFestivalWithDetails()
+    res.status(200).json(jeux)
+  } catch (err) {
+    next(err)
+  }
+}
+
+export async function getEditeursByFestival(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const festivalId = parseInt(req.params.festivalId, 10)
+    if (isNaN(festivalId)) { res.status(400).json({ error: 'Identifiant de festival invalide' }); return }
+    const editeurs = await jeuService.getEditeursByFestival(festivalId)
+    res.status(200).json(editeurs)
+  } catch (err) {
+    next(err)
+  }
+}
+
 export async function getEditeursByLatestFestival(_req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const editeurs = await jeuService.getEditeursByLatestFestival()
@@ -59,16 +90,7 @@ export async function getEditeursByLatestFestival(_req: Request, res: Response, 
   }
 }
 
-export async function getAllByLatestFestivalWithDetails(req: Request, res: Response, next: NextFunction): Promise<void> {
-  try {
-    const jeux = await jeuService.getAllByLatestFestivalWithDetails()
-    res.status(200).json(jeux)
-  } catch (err) {
-    next(err)
-  }
-}
-
-export async function getAllWithMecanismes(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function getAllWithMecanismes(_req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const jeux = await jeuService.getAllWithMecanismes()
     res.status(200).json(jeux)
