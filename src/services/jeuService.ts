@@ -44,10 +44,17 @@ export async function getAllByFestivalWithDetails(festivalId: number): Promise<J
   return repo.findAllByFestivalWithDetails(festivalId)
 }
 
-// Version publique : récupère les données complètes puis supprime les champs admin
+// Version publique : supprime les champs admin et les IDs internes inutiles
 export async function getAllByLatestFestivalPublic(): Promise<JeuFestivalPublic[]> {
   const jeux = await repo.findAllByLatestFestivalWithDetails()
-  return jeux.map(({ placeJeu: _p, besoinAnimJeu: _b, receptionJeuReserver: _r, ...rest }) => rest)
+  return jeux.map(({
+    placeJeu: _p,
+    besoinAnimJeu: _b,
+    receptionJeuReserver: _r,
+    idEditeur: _ie,
+    idTypeJeu: _it,
+    ...rest
+  }) => rest)
 }
 
 export async function getAllByLatestFestivalWithDetails(): Promise<JeuFestival[]> {

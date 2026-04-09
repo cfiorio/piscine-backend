@@ -198,16 +198,18 @@ export async function findEditeursByLatestFestival(): Promise<EditeurFestival[]>
 
 // --- Jeux du festival en cours avec mécanismes et zones ---
 
-// Vue publique — sans les champs de gestion interne
-export interface JeuFestivalPublic extends Jeu {
+// Vue publique — sans les champs de gestion interne ni les IDs internes inutiles
+export interface JeuFestivalPublic extends Omit<Jeu, 'idEditeur' | 'idTypeJeu'> {
   mecanismes: string
   zones: string
   nbJeux: number
   nbTables: number
 }
 
-// Vue admin — avec les champs de gestion interne
+// Vue admin — avec les champs de gestion interne et les IDs internes
 export interface JeuFestival extends JeuFestivalPublic {
+  idEditeur: number | null
+  idTypeJeu: number | null
   placeJeu: boolean
   besoinAnimJeu: boolean
   receptionJeuReserver: boolean
