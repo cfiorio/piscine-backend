@@ -11,6 +11,7 @@ export interface Jeu {
   noticeJeu: string | null
   idEditeur: number | null
   libelleEditeur: string | null
+  logoEditeur: string | null
   idTypeJeu: number | null
   libelleTypeJeu: string | null
   agemini: number
@@ -27,6 +28,7 @@ const BASE_SELECT = `
   SELECT
     j.*,
     e.libelleEditeur,
+    e.logoEditeur,
     t.libelleTypeJeu
   FROM jeu j
   LEFT JOIN editeur e ON e.idEditeur = j.idEditeur
@@ -124,6 +126,7 @@ const WITH_MECANISMES_QUERY = `
   SELECT
     j.*,
     e.libelleEditeur,
+    e.logoEditeur,
     t.libelleTypeJeu,
     COALESCE(GROUP_CONCAT(m.mecaName ORDER BY m.mecaName SEPARATOR ';'), '') AS mecanismes
   FROM jeu j
@@ -233,7 +236,8 @@ export async function findAllByFestivalWithDetails(festivalId: number): Promise<
       r_agg.nbTables,
       MAX(r.placeJeu) AS placeJeu,
       MAX(r.besoinAnimJeu) AS besoinAnimJeu,
-      MAX(r.receptionJeuReserver) AS receptionJeuReserver
+      MAX(r.receptionJeuReserver) AS receptionJeuReserver,
+      e.logoEditeur
     FROM (
       SELECT idJeu,
              SUM(quantiteJeuReserver) AS nbJeux,
