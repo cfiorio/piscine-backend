@@ -1,6 +1,6 @@
 import * as repo from '../repository/jeuRepository'
-import type { Jeu, JeuWithMecanismes, JeuFestival, EditeurFestival } from '../repository/jeuRepository'
-export type { JeuFestival, EditeurFestival }
+import type { Jeu, JeuWithMecanismes, JeuFestival, JeuFestivalPublic, EditeurFestival } from '../repository/jeuRepository'
+export type { JeuFestival, JeuFestivalPublic, EditeurFestival }
 import type { JeuCreateInput, JeuUpdateInput } from '../schemas/jeu.schema'
 
 export async function getAll(): Promise<Jeu[]> {
@@ -42,6 +42,12 @@ export async function getByIdWithMecanismes(id: number): Promise<JeuWithMecanism
 
 export async function getAllByFestivalWithDetails(festivalId: number): Promise<JeuFestival[]> {
   return repo.findAllByFestivalWithDetails(festivalId)
+}
+
+// Version publique : récupère les données complètes puis supprime les champs admin
+export async function getAllByLatestFestivalPublic(): Promise<JeuFestivalPublic[]> {
+  const jeux = await repo.findAllByLatestFestivalWithDetails()
+  return jeux.map(({ placeJeu: _p, besoinAnimJeu: _b, receptionJeuReserver: _r, ...rest }) => rest)
 }
 
 export async function getAllByLatestFestivalWithDetails(): Promise<JeuFestival[]> {

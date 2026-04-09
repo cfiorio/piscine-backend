@@ -198,11 +198,16 @@ export async function findEditeursByLatestFestival(): Promise<EditeurFestival[]>
 
 // --- Jeux du festival en cours avec mécanismes et zones ---
 
-export interface JeuFestival extends Jeu {
+// Vue publique — sans les champs de gestion interne
+export interface JeuFestivalPublic extends Jeu {
   mecanismes: string
   zones: string
   nbJeux: number
   nbTables: number
+}
+
+// Vue admin — avec les champs de gestion interne
+export interface JeuFestival extends JeuFestivalPublic {
   placeJeu: boolean
   besoinAnimJeu: boolean
   receptionJeuReserver: boolean

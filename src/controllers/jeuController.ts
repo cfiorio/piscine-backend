@@ -61,6 +61,17 @@ export async function getAllByFestivalWithDetails(req: Request, res: Response, n
   }
 }
 
+// Route publique : sans les champs admin
+export async function getAllByLatestFestivalPublic(_req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const jeux = await jeuService.getAllByLatestFestivalPublic()
+    res.status(200).json(jeux)
+  } catch (err) {
+    next(err)
+  }
+}
+
+// Route admin : avec tous les champs
 export async function getAllByLatestFestivalWithDetails(_req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const jeux = await jeuService.getAllByLatestFestivalWithDetails()
